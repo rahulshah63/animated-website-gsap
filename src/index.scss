@@ -3,11 +3,16 @@
 @tailwind utilities;
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Matter', sans-serif;
   font-size: 18px;
   margin: 0;
   padding: 0;
   overflow: auto;
   width: 100dvw;
   height: 100dvh;
+  background: rgba(244, 240, 250, 1);
+  &::-webkit-scrollbar {
+    background: transparent !important;
+    height: 0px;
+}
 }

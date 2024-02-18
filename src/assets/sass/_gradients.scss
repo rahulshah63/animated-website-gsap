@@ -1,0 +1,19 @@
+.pink-gradient {
+    background: rgba(244, 240, 250, 1);
+    background: radial-gradient(circle, rgba(214, 148, 255, 0.34) 0%, rgba(244, 240, 250, 1) 70%);
+    // background: linear-gradient(
+    //     90deg,
+    //     rgba(244, 240, 250, 1) 35%,
+    //     rgba(214, 148, 255, 0.24) 100%
+    // );
+}
+
+.pink-gradient-top {
+    background: rgb(0, 0, 0);
+    // background: radial-gradient(circle, rgba(214, 148, 255, 0.34) 0%, #f4f0f0 80%);
+    background: linear-gradient(
+        150deg,
+        rgba(244, 240, 250, 1) 0%,
+        rgba(214, 148, 255, 0.24) 100%
+    );
+}
