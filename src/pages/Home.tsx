@@ -1,6 +1,7 @@
 import SEO from "@/components/SEO";
 import { Button } from "@/components/button/Button";
-import { HeroCards, JoinedAvatar } from "@/constants/assets/Images";
+import { FeatureCard } from "@/components/cards/Feature";
+import { CedroFeature, HeroCards, JoinedAvatar } from "@/constants/assets/Images";
 
 export const Home = () => {
     const metaData = {
@@ -35,12 +36,64 @@ export const Home = () => {
                             handleClick={() => {}}
                         />
                     </div>
-                    <span className="joined inline-flex gap-3 items-center"> 
-                    <img src={JoinedAvatar} />
-                    1200+ joined</span>
+                    <span className="joined inline-flex gap-3 items-center">
+                        <img src={JoinedAvatar} />
+                        1200+ joined
+                    </span>
                 </div>
                 <div className="flex justify-center items-center">
                     <img src={HeroCards} />
+                </div>
+            </div>
+            <div className="feature-wrapper flex flex-col gap-[1.875rem] md:gap-[10rem] justify-center">
+                <span className="title">
+                    The <b>Omni Power</b>
+                    <br />
+                    with Cedro
+                </span>
+                <div className="flex flex-col gap-5 justify-center items-center">
+                    <FeatureCard
+                        title={
+                            <>
+                                Use native tokens{" "}
+                                <text className="text-[#FFFBA2]">
+                                    across <br /> different
+                                </text>{" "}
+                                blockchains
+                            </>
+                        }
+                        image={CedroFeature}
+                        description="Transforms isolated assets into powerful tools usable across multiple blockchains"
+                        buttonText="Try it Now"
+                        handleClick={() => {}}
+                    />
+                    <FeatureCard
+                        title={
+                            <>
+                                <text className="text-[#FFFBA2]">Maximize</text> the Power of Your
+                                Capital
+                            </>
+                        }
+                        image={CedroFeature}
+                        description="Transforms isolated assets into powerful tools usable across multiple blockchains"
+                        buttonText="Try it Now"
+                        handleClick={() => {}}
+                    />
+                    <FeatureCard
+                        title={
+                            <>
+                                Use native tokens{" "}
+                                <text className="text-[#FFFBA2]">
+                                    across <br /> different
+                                </text>{" "}
+                                blockchains
+                            </>
+                        }
+                        image={CedroFeature}
+                        description="Transforms isolated assets into powerful tools usable across multiple blockchains"
+                        buttonText="Try it Now"
+                        handleClick={() => {}}
+                    />
                 </div>
             </div>
         </SEO>
