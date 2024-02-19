@@ -10,9 +10,10 @@ body {
   overflow: auto;
   width: 100dvw;
   height: 100dvh;
-  background: rgba(244, 240, 250, 1);
+  // background: rgba(244, 240, 250, 1);
   &::-webkit-scrollbar {
     background: transparent !important;
     height: 0px;
+    width: 0px;
 }
 }

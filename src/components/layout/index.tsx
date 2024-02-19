@@ -20,9 +20,9 @@ const Layout: FC<LayoutProps> = ({
   mainClass,
 }: LayoutProps) => {
   return (
-    <div className={`flex flex-col justify-between items-center min-h-screen site-layout overflow-hidden ${className ?? ''}`}>
+    <div className={`flex flex-col justify-between items-center min-h-screen bg-[rgb(244,240,250)] site-layout overflow-hidden ${className ?? ''}`}>
       {!hideheader && <Header classname={headerClass} />}
-      <main className={`w-full px-5 sm:px-[1.5rem] lg:px-[3rem] xl:px-[5rem] ${mainClass}`}>
+      <main className={`w-full bg-[#F4F0FA]  ${mainClass}`}>
         {children}
       </main>
       {!hideFooter && <Footer />}
