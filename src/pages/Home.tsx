@@ -1,27 +1,19 @@
-import SEO from "@/components/SEO";
 import { Button } from "@/components/button/Button";
 import { FeatureCard } from "@/components/cards/Feature";
 import { StepCard } from "@/components/cards/Step";
 import FAQ from "@/components/faq";
 import { Addidas, BRIDGING_THE_GAP, CedroIcon, Fila, Nike, Ritter } from "@/constants/assets/Icons";
 import { BannerBG, FeatureBG, FeatureFG, HeroCards, JoinedAvatar } from "@/constants/assets/Images";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
 import useScrollToTop from "@/hooks/useScrollToTop";
 import { useState, useEffect } from "react";
+import Seo from "@/components/seo";
 
 export const Home = () => {
-    const metaData = {
-        pageTitle: `Cedro Finance`,
-        pageDescription: "Convert Native Assets to OmniAssets.",
-        pageKeywords: null,
-        pageImage: null,
-    };
     const [scale, setScale] = useState(1);
     const [translation, setTranslation] = useState('');
     const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
     useScrollToTop();
-    const isBigScreen = useMediaQuery("(min-width: 1030px)");
-    console.log({scale});
+    // const isBigScreen = useMediaQuery("(min-width: 1030px)");
 
     useEffect(() => {
         const handleScroll = () => {
@@ -46,7 +38,7 @@ export const Home = () => {
             // console.log(scrollDelta, currentScrollPos, minY, maxY, minSticky, maxSticky);
             if (currentScrollPos > minY && currentScrollPos < maxY) {
                 //remove feature-bg
-                if (FeatureSection?.classList.contains("add-bg")) FeatureSection?.classList.remove("add-bg");
+                if (FeatureSection?.classList.contains("!bg-[#6029d7]")) FeatureSection?.classList.remove("!bg-[#6029d7]");
                 // scale
                 if (!circle?.classList.contains("circle")) circle?.classList.add("circle");
                 if (!circle?.classList.contains("!fixed")) circle?.classList.add("!fixed");
@@ -104,7 +96,7 @@ export const Home = () => {
             } else if (currentScrollPos > maxY) {
                 // below
                 if (circle?.classList.contains("circle")) circle?.classList.remove("circle");
-                if (!FeatureSection?.classList.contains("add-bg")) FeatureSection?.classList.add("add-bg");
+                if (!FeatureSection?.classList.contains("!bg-[#6029d7]")) FeatureSection?.classList.add("!bg-[#6029d7]");
             }
             setScale(newScale);
             setPrevScrollPos(currentScrollPos);
@@ -116,9 +108,9 @@ export const Home = () => {
             window.removeEventListener("scroll", handleScroll);
         };
     }, [prevScrollPos]);
-
     return (
-        <SEO pageMetaData={metaData}>
+        <>
+            <Seo title="Cedro Finance" description="Convert Native Assets to OmniAssets." />
             <div className="px-5 sm:px-[1.5rem] lg:px-[3rem] xl:px-[5rem] relative h-screen w-full flex flex-col sm:flex-row justify-around items-center">
                 <div className="absolute -top-[3%] -z-10 md:-right-1/2 pink-gradient h-full w-full scale-125" />
                 <div className="flex flex-col gap-5">
@@ -369,6 +361,6 @@ export const Home = () => {
                     <p className="joined">12000+ already joined</p>
                 </div>
             </div>
-        </SEO>
+        </>
     );
 };

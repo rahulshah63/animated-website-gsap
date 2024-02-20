@@ -1,11 +1,10 @@
 import { FC, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { EXTERNAL_LINKS, MENU_LIST } from "@/constants";
+import { MENU_LIST } from "@/constants";
 import { MobileMenu, WebMenu } from "@/components/menu";
 import { cn } from "@/utils/cn";
-import { CROSS, CedroIcon, CedroText, HamburgerIcon, PLUS } from "@/constants/assets/Icons";
-import { CedroLogo } from "@/constants/assets/Images";
+import { CROSS, CedroIcon, CedroText, HamburgerIcon } from "@/constants/assets/Icons";
 
 interface IHeader {
     classname?: string;

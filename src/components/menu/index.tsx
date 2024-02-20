@@ -1,7 +1,7 @@
 import { EXTERNAL_LINKS } from "@/constants/index";
 import { cn } from "@/utils/cn";
 import { FC } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button } from "../button/Button";
 import { TWITTER, DISCORD, MEDIUM, TELEGRAM } from "@/constants/assets/Icons";
 
