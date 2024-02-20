@@ -4,6 +4,7 @@ import JoinedAvatar from '@/assets/images/joined-avatar.png'
 import FeatureFG from '@/assets/images/feature-fg.png'
 import FeatureBG from '@/assets/images/feature-bg.png'
 import StepBG from '@/assets/images/step-bg.png'
+import BannerBG from '@/assets/images/banner-bg.png'
 
 export {
   CedroLogo,
@@ -11,5 +12,6 @@ export {
   JoinedAvatar,
   FeatureFG,
   StepBG,
-  FeatureBG
+  FeatureBG,
+  BannerBG
 }

@@ -3,6 +3,7 @@ import { cn } from "@/utils/cn";
 import { FC } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Button } from "../button/Button";
+import { TWITTER, DISCORD, MEDIUM, TELEGRAM } from "@/constants/assets/Icons";
 
 interface IWebMenu {
     menus: {
@@ -72,7 +73,7 @@ export const MobileMenu: FC<IMobileMenu> = ({ showmenu, menus }) => {
                                     ? window.open(item.link, "_blank", "noopener,noreferrer")
                                     : navigate(item.link)
                             }
-                            className="cursor-pointer w-fit"
+                            className="cursor-pointer text-white/80 text-2xl font-semibold w-fit"
                         >
                             {item.title}
                         </h6>
@@ -80,35 +81,41 @@ export const MobileMenu: FC<IMobileMenu> = ({ showmenu, menus }) => {
                 ))}
             </div>
             <div className="w-full flex flex-col items-center gap-5">
-                <div className="flex gap-4">
-                    <a
-                        href={EXTERNAL_LINKS.TWITTER}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="w-5 h-5 hover:opacity-80"
-                    >
-                        <img src="twitter" />
-                    </a>
-                    <a
-                        href={EXTERNAL_LINKS.DISCORD}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="w-6 h-6 hover:opacity-80"
-                    >
-                        <img src="discord" />
-                    </a>
-                    <a
-                        href={EXTERNAL_LINKS.INSTAGRAM}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="w-6 h-6 hover:opacity-80"
-                    >
-                        <img src="instagram" />
-                    </a>
-                </div>
-                <p className="text-white inline-block opacity-40 text-sm font-light">
-                    &copy; 2023 Anichess. All Rights Reserved
-                </p>
+            <div className="flex gap-4 pb-2">
+                <a
+                    href={EXTERNAL_LINKS.TWITTER}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="bg-[rgba(114,104,255,1)] rounded-full flex justify-center items-center w-[2.7125rem] h-[2.7125rem] md:w-[3.035rem]  md:h-[3.035rem] hover:opacity-80"
+                >
+                    <img src={TWITTER} />
+                </a>
+                <a
+                    href={EXTERNAL_LINKS.DISCORD}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="bg-[rgba(114,104,255,1)] rounded-full flex justify-center items-center w-[2.7125rem] h-[2.7125rem] md:w-[3.035rem]  md:h-[3.035rem] hover:opacity-80"
+                >
+                    <img src={DISCORD} />
+                </a>
+                <a
+                    href={EXTERNAL_LINKS.MEDIUM}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="bg-[rgba(114,104,255,1)] rounded-full flex justify-center items-center w-[2.7125rem] h-[2.7125rem] md:w-[3.035rem]  md:h-[3.035rem] hover:opacity-80"
+                >
+                    <img src={MEDIUM} />
+                </a>
+                <a
+                    href={EXTERNAL_LINKS.TELEGRAM}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="bg-[rgba(114,104,255,1)] rounded-full flex justify-center items-center w-[2.7125rem] h-[2.7125rem] md:w-[3.035rem]  md:h-[3.035rem] hover:opacity-80"
+                >
+                    <img src={TELEGRAM} />
+                </a>
+            </div>
+            <p className="footer copyright !text-white">&copy; 2023 Cedro. All rights reserved.</p>
             </div>
         </div>
     );

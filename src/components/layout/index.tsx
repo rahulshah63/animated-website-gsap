@@ -22,10 +22,10 @@ const Layout: FC<LayoutProps> = ({
   return (
     <div className={`flex flex-col justify-between items-center min-h-screen bg-[rgb(244,240,250)] site-layout overflow-hidden ${className ?? ''}`}>
       {!hideheader && <Header classname={headerClass} />}
-      <main className={`w-full bg-[#F4F0FA]  ${mainClass}`}>
+      <main className={`w-full  ${mainClass}`}>
         {children}
       </main>
-      {!hideFooter && <Footer />}
+      {!hideFooter && <Footer classname='bg-white'/>}
     </div>
   );
 };

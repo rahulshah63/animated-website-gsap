@@ -3,7 +3,8 @@ export const routes = { INDEX: '/' }
 export const EXTERNAL_LINKS = {
     TWITTER: 'https://twitter.com/',
     DISCORD: 'https://discord.gg/',
-    INSTAGRAM: 'https://www.instagram.com/',
+    TELEGRAM: 'https://www.telegram.com/',
+    MEDIUM: ''
 }  
 export const MENU_LIST = {
     HowItWorks: {

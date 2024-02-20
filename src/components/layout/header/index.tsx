@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { EXTERNAL_LINKS, MENU_LIST } from "@/constants";
 import { MobileMenu, WebMenu } from "@/components/menu";
 import { cn } from "@/utils/cn";
-import { CedroIcon, CedroText, HamburgerIcon } from "@/constants/assets/Icons";
+import { CROSS, CedroIcon, CedroText, HamburgerIcon, PLUS } from "@/constants/assets/Icons";
 import { CedroLogo } from "@/constants/assets/Images";
 
 interface IHeader {
@@ -25,8 +25,8 @@ const Header: FC<IHeader> = ({ classname }) => {
                 <WebMenu menus={MENUS} />
 
                 <img
-                    src={showMobileMenu ? HamburgerIcon : HamburgerIcon}
-                    className={cn("lg:hidden w-6 h-6 z-10")}
+                    src={showMobileMenu ? CROSS : HamburgerIcon}
+                    className={cn("lg:hidden w-6 h-6 z-10", {'w-10 h-10 opacity-60': showMobileMenu})}
                     onClick={() => setShowMobileMenu(!showMobileMenu)}
                 />
         </header>
