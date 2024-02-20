@@ -1,8 +1,10 @@
 .feature-wrapper {
     color: white;
-    background: #6029d7;
     padding: 54px 24px;
-    border-radius: 24px;
+    .add-bg {
+        background: #6029d7;
+        border-radius: 24px;
+    }
     .title {
         font-size: 35px;
         font-weight: 400;

@@ -10,7 +10,6 @@ import useScrollToTop from "@/hooks/useScrollToTop";
 import { useState, useEffect } from "react";
 
 export const Home = () => {
-
     const metaData = {
         pageTitle: `Cedro Finance`,
         pageDescription: "Convert Native Assets to OmniAssets.",
@@ -18,32 +17,36 @@ export const Home = () => {
         pageImage: null,
     };
     const [scale, setScale] = useState(1);
+    const [translation, setTranslation] = useState('');
     const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
     useScrollToTop();
-    const isBigScreen = useMediaQuery('(min-width: 1030px)');
-    console.log({isBigScreen});
+    const isBigScreen = useMediaQuery("(min-width: 1030px)");
+    console.log({scale});
 
-    useEffect(() => {    
+    useEffect(() => {
         const handleScroll = () => {
             var circle = document.getElementById("scroll-circle");
             var bridgingTheGap = document.getElementById("bridging-the-gap");
             var CedroIcon = document.getElementById("cedro-icon");
             var stickyText = document.getElementById("sticky-text");
+            var FeatureSection = document.getElementById("features");
 
-            var stickyPosition = stickyText?.getBoundingClientRect();
+            // var stickyPosition = stickyText?.getBoundingClientRect();
             const currentScrollPos = window.scrollY;
             const scrollDelta = currentScrollPos - prevScrollPos;
             // Define scaling factors for smooth resizing
-            const scaleStep = 0.085; // Adjust the step as needed for smoothness
+            const scaleStep = 0.08; // Adjust the step as needed for smoothness
             const maxScale = 12; // Maximum scale factor
             const minScale = 1; // Minimum scale factor
-            const minY = 840;
-            const maxY = 2500;
-            const minSticky = 1200;
-            const maxSticky = 1700;
+            const minY = 700;
+            const maxY = 3000;
+            const minSticky = 1000;
+            const maxSticky = 2000;
             let newScale = scale;
-            console.log(currentScrollPos, minY, maxY, stickyPosition);
+            // console.log(scrollDelta, currentScrollPos, minY, maxY, minSticky, maxSticky);
             if (currentScrollPos > minY && currentScrollPos < maxY) {
+                //remove feature-bg
+                if (FeatureSection?.classList.contains("add-bg")) FeatureSection?.classList.remove("add-bg");
                 // scale
                 if (!circle?.classList.contains("circle")) circle?.classList.add("circle");
                 if (!circle?.classList.contains("!fixed")) circle?.classList.add("!fixed");
@@ -61,22 +64,34 @@ export const Home = () => {
 
                 // sticky text
                 if (currentScrollPos > minSticky) {
-                    if (!circle?.classList.contains("!bg-[#6029D7]")) circle?.classList.add("!bg-[#6029D7]"); 
-                        if (!stickyText?.classList.contains("toggleText"))
+                    if(newScale < 2.5) newScale = 2.5
+                    if (!circle?.classList.contains("!bg-[#6029D7]"))
+                        circle?.classList.add("!bg-[#6029D7]");
+                    if (!stickyText?.classList.contains("toggleText"))
                         stickyText?.classList.add("toggleText");
-                }else{
-                    if (circle?.classList.contains("!bg-[#6029D7]")) circle?.classList.remove("!bg-[#6029D7]");
+                } else {
+                    if (circle?.classList.contains("!bg-[#6029D7]"))
+                        circle?.classList.remove("!bg-[#6029D7]");
                     if (stickyText?.classList.contains("toggleText"))
-                    stickyText?.classList.remove("toggleText");
+                        stickyText?.classList.remove("toggleText");
                 }
-                
-                
+
                 if (currentScrollPos > minSticky && currentScrollPos < maxSticky) {
+                    // if (stickyText?.classList.contains("smooth-transition"))
+                    // stickyText?.classList.remove("smooth-transition");
                     if (!stickyText?.classList.contains("sticky-text"))
                         stickyText?.classList.add("sticky-text");
-                } else {
+                    setTranslation(`translate(-50%, -50%)`)
+                } else if(currentScrollPos < minSticky){
                     if (stickyText?.classList.contains("sticky-text"))
-                        stickyText?.classList.remove("sticky-text");
+                    stickyText?.classList.remove("sticky-text");
+                    if (stickyText?.classList.contains("smooth-transition"))
+                    stickyText?.classList.remove("smooth-transition");
+                setTranslation(`translate(0%, 0%)`)
+            } else if(currentScrollPos > maxSticky) {
+                    if (!stickyText?.classList.contains("smooth-transition"))
+                        stickyText?.classList.add("smooth-transition");
+                    setTranslation(`translate(-50%, -300%)`)
                 }
             } else if (currentScrollPos < minY) {
                 // above
@@ -89,7 +104,7 @@ export const Home = () => {
             } else if (currentScrollPos > maxY) {
                 // below
                 if (circle?.classList.contains("circle")) circle?.classList.remove("circle");
-
+                if (!FeatureSection?.classList.contains("add-bg")) FeatureSection?.classList.add("add-bg");
             }
             setScale(newScale);
             setPrevScrollPos(currentScrollPos);
@@ -136,7 +151,7 @@ export const Home = () => {
                     <img src={HeroCards} />
                 </div>
             </div>
-            <div className="bridgingTheGap pb-[100dvh]">
+            <div className="bridgingTheGap pb-[150dvh]">
                 <div className="flex relative justify-center items-center">
                     <div
                         id="scroll-circle"
@@ -156,7 +171,13 @@ export const Home = () => {
                         className="absolute w-[14%] md:w-auto z-[20]"
                     />
                 </div>
-                <div id="sticky-text" className="flex flex-col justify-center px-8 gap-6">
+                <div
+                    id="sticky-text"
+                    className="-mt-4 w-full flex flex-col justify-center px-8 gap-6"
+                    style={{
+                        transform: translation, // Gradually move up and down
+                    }}
+                >
                     <span className="title z-20">
                         <text className="blue font-bold">Bridging the Gaps </text>
                         <br />

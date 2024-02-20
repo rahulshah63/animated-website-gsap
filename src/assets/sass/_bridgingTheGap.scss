@@ -16,11 +16,15 @@
     }
 
     .sticky-text {
-        width: 100%;
+        // width: 100%;
         position: fixed;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+    }
+    
+    .smooth-transition{
+        transition: transform 0.3s ease; // Transition for smooth scaling
+
     }
 
     .title {
@@ -58,24 +62,3 @@
         }
     }
 }
-
-// .toggleShape {
-//     .circle {
-//          // background: #6029d7;
-//     padding: 54px 24px;
-//     border-radius: 24px;
-//         width: 100dvw;
-//         // height: 24dvw;
-//         max-width: 240px; // Initial width of the circle
-//         max-height: 240px; // Initial height of the circle
-//         border-radius: 50%;
-//         background-color: white;
-//         position: absolute;
-//         top: 50%;
-//         left: 50%;
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         transition: transform 0.3s ease; // Transition for smooth scaling
-//     }
-// }
