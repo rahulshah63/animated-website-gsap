@@ -2,45 +2,8 @@ import { EXTERNAL_LINKS } from "@/constants/index";
 import { cn } from "@/utils/cn";
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button } from "../button/Button";
 import { TWITTER, DISCORD, MEDIUM, TELEGRAM } from "@/constants/assets/Icons";
 
-interface IWebMenu {
-    menus: {
-        title: string;
-        link: string;
-        icon?: string;
-        isExternalLink?: boolean;
-    }[];
-}
-export const WebMenu: FC<IWebMenu> = (props) => {
-    const { menus } = props || {};
-    const navigate = useNavigate();
-
-    return (
-        <>
-            <div className="hidden lg:flex gap-2.5 justify-center items-center ">
-                {menus.map((item) => (
-                    <h6
-                        key={item.title}
-                        onClick={() =>
-                            item.isExternalLink
-                                ? window.open(item.link, "_blank", "noopener,noreferrer")
-                                : navigate(item.link)
-                        }
-                        className="m-2.5 text-base cursor-pointer w-fit"
-                    >
-                        {item.title}
-                    </h6>
-                ))}
-            </div>
-            <div className="hidden lg:flex gap-5 justify-center items-center ">
-              <Button bgColor="bg-transparent" textColor="text-black" text="Launch Demo" handleClick={() => {}}/>
-              <Button bgColor="bg-[#713CEE]" textColor="text-white" text="Join Waitlist" handleClick={() => {}}/>
-            </div>
-        </>
-    );
-};
 
 interface IMobileMenu {
     showmenu: boolean;
@@ -88,7 +51,7 @@ export const MobileMenu: FC<IMobileMenu> = ({ showmenu, menus }) => {
                     rel="noreferrer"
                     className="bg-[rgba(114,104,255,1)] rounded-full flex justify-center items-center w-[2.7125rem] h-[2.7125rem] md:w-[3.035rem]  md:h-[3.035rem] hover:opacity-80"
                 >
-                    <img src={TWITTER} />
+                    <TWITTER />
                 </a>
                 <a
                     href={EXTERNAL_LINKS.DISCORD}
@@ -96,7 +59,7 @@ export const MobileMenu: FC<IMobileMenu> = ({ showmenu, menus }) => {
                     rel="noreferrer"
                     className="bg-[rgba(114,104,255,1)] rounded-full flex justify-center items-center w-[2.7125rem] h-[2.7125rem] md:w-[3.035rem]  md:h-[3.035rem] hover:opacity-80"
                 >
-                    <img src={DISCORD} />
+                    <DISCORD />
                 </a>
                 <a
                     href={EXTERNAL_LINKS.MEDIUM}
@@ -104,7 +67,7 @@ export const MobileMenu: FC<IMobileMenu> = ({ showmenu, menus }) => {
                     rel="noreferrer"
                     className="bg-[rgba(114,104,255,1)] rounded-full flex justify-center items-center w-[2.7125rem] h-[2.7125rem] md:w-[3.035rem]  md:h-[3.035rem] hover:opacity-80"
                 >
-                    <img src={MEDIUM} />
+                    <MEDIUM />
                 </a>
                 <a
                     href={EXTERNAL_LINKS.TELEGRAM}
@@ -112,7 +75,7 @@ export const MobileMenu: FC<IMobileMenu> = ({ showmenu, menus }) => {
                     rel="noreferrer"
                     className="bg-[rgba(114,104,255,1)] rounded-full flex justify-center items-center w-[2.7125rem] h-[2.7125rem] md:w-[3.035rem]  md:h-[3.035rem] hover:opacity-80"
                 >
-                    <img src={TELEGRAM} />
+                    <TELEGRAM />
                 </a>
             </div>
             <p className="footer copyright !text-white">&copy; 2023 Cedro. All rights reserved.</p>

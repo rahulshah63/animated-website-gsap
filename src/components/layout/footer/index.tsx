@@ -19,8 +19,8 @@ const Footer: FC<IFooter> = ({ classname }) => {
         >
             <div className="flex w-full flex-col md:flex-row justify-center md:justify-between gap-6 items-center md:items-end">
             <Link to={"/"} className="inline-flex gap-3 pb-2">
-                <img className="w-[2.15rem] h-[2.15rem]" src={CedroIcon} alt="cedro-logo" />
-                <img className="h-[2.15rem]" src={CedroText} alt="cedro-text" />
+                <CedroIcon className="w-[2.15rem] h-[2.15rem]" />
+                <CedroText className="h-[2.15rem]" />
             </Link>
             <div className="input-section gap-3 md:gap-6">
                 <span className="text">Stay up to date</span>
@@ -46,7 +46,7 @@ const Footer: FC<IFooter> = ({ classname }) => {
                     rel="noreferrer"
                     className="bg-[rgba(114,104,255,1)] rounded-full flex justify-center items-center w-[2.7125rem] h-[2.7125rem] md:w-[3.035rem]  md:h-[3.035rem] hover:opacity-80"
                 >
-                    <img src={TWITTER} />
+                    <TWITTER />
                 </a>
                 <a
                     href={EXTERNAL_LINKS.DISCORD}
@@ -54,7 +54,7 @@ const Footer: FC<IFooter> = ({ classname }) => {
                     rel="noreferrer"
                     className="bg-[rgba(114,104,255,1)] rounded-full flex justify-center items-center w-[2.7125rem] h-[2.7125rem] md:w-[3.035rem]  md:h-[3.035rem] hover:opacity-80"
                 >
-                    <img src={DISCORD} />
+                    <DISCORD />
                 </a>
                 <a
                     href={EXTERNAL_LINKS.MEDIUM}
@@ -62,7 +62,7 @@ const Footer: FC<IFooter> = ({ classname }) => {
                     rel="noreferrer"
                     className="bg-[rgba(114,104,255,1)] rounded-full flex justify-center items-center w-[2.7125rem] h-[2.7125rem] md:w-[3.035rem]  md:h-[3.035rem] hover:opacity-80"
                 >
-                    <img src={MEDIUM} />
+                    <MEDIUM />
                 </a>
                 <a
                     href={EXTERNAL_LINKS.TELEGRAM}
@@ -70,7 +70,7 @@ const Footer: FC<IFooter> = ({ classname }) => {
                     rel="noreferrer"
                     className="bg-[rgba(114,104,255,1)] rounded-full flex justify-center items-center w-[2.7125rem] h-[2.7125rem] md:w-[3.035rem]  md:h-[3.035rem] hover:opacity-80"
                 >
-                    <img src={TELEGRAM} />
+                    <TELEGRAM />
                 </a>
             </div>
             </div>

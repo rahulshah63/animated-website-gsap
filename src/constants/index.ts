@@ -1,10 +1,11 @@
 export const routes = { INDEX: '/' }
 
 export const EXTERNAL_LINKS = {
-    TWITTER: 'https://twitter.com/',
-    DISCORD: 'https://discord.gg/',
-    TELEGRAM: 'https://www.telegram.com/',
-    MEDIUM: ''
+    TWITTER: 'https://twitter.com/cedro_finance',
+    DISCORD: 'https://discord.gg/cedro-finance',
+    TELEGRAM: 'https://t.me/cedrofinance',
+    MEDIUM: 'https://medium.com/@cedrolabs',
+    DEMO: 'https://app.cedro.finance/'
 }  
 export const MENU_LIST = {
     HowItWorks: {

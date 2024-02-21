@@ -124,10 +124,8 @@ const FAQItem: FC<IFAQItem> = ({ question, answer, id, faqIds, setFaqIds }) => {
                             <p className="question">{question}</p>
                             {faqIds.includes(id) && <p className="mt-6 answer">{answer}</p>}
                         </div>
-                        <img
-                            src={PLUS}
-                            alt="faq-toggle"
-                            className={`${faqIds.includes(id) && "-rotate-45"}`}
+                        <PLUS
+                             className={`${faqIds.includes(id) && "stroke-blue-600 -rotate-45"}`}
                         />
                     </div>
                     <hr className="my-6 border-[#AEA5BE] border-opacity-20 w-full" />
