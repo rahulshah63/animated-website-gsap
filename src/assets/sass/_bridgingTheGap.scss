@@ -12,18 +12,17 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        transition: transform 0.3s ease; // Transition for smooth scaling
+        transition: transform 1s ease; // Transition for smooth scaling
     }
 
     .sticky-text {
-        // width: 100%;
         position: fixed;
         top: 50%;
         left: 50%;
     }
     
     .smooth-transition{
-        transition: transform 0.3s ease; // Transition for smooth scaling
+        transition: transform 1s ease; // Transition for smooth translating
 
     }
 

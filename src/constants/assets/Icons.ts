@@ -13,6 +13,11 @@ import TELEGRAM from "@/assets/icons/social/telegram.svg";
 import DISCORD from "@/assets/icons/social/discord.svg";
 import MEDIUM from "@/assets/icons/social/medium.svg";
 import BRIDGING_THE_GAP from "@/assets/icons/bridging-the-gap.svg";
+import FRAG_1 from "@/assets/icons/fragmented/frag-1.svg";
+import FRAG_2 from "@/assets/icons/fragmented/frag-2.svg";
+import FRAG_3 from "@/assets/icons/fragmented/frag-3.svg";
+import FRAG_4 from "@/assets/icons/fragmented/frag-4.svg";
+import FRAG_5 from "@/assets/icons/fragmented/frag-5.svg";
 
 export {
     CedroText,
@@ -29,5 +34,10 @@ export {
     MEDIUM,
     TELEGRAM,
     TWITTER,
-    BRIDGING_THE_GAP
+    BRIDGING_THE_GAP,
+    FRAG_1,
+    FRAG_2,
+    FRAG_3,
+    FRAG_4,
+    FRAG_5,
 };

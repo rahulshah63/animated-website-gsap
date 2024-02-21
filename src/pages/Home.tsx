@@ -2,44 +2,88 @@ import { Button } from "@/components/button/Button";
 import { FeatureCard } from "@/components/cards/Feature";
 import { StepCard } from "@/components/cards/Step";
 import FAQ from "@/components/faq";
-import { Addidas, BRIDGING_THE_GAP, CedroIcon, Fila, Nike, Ritter } from "@/constants/assets/Icons";
-import { BannerBG, FeatureBG, FeatureFG, HeroCards, JoinedAvatar } from "@/constants/assets/Images";
+import {
+    Addidas,
+    BRIDGING_THE_GAP,
+    CedroIcon,
+    FRAG_1,
+    FRAG_2,
+    FRAG_3,
+    FRAG_4,
+    FRAG_5,
+    Fila,
+    Nike,
+    Ritter,
+} from "@/constants/assets/Icons";
+import {
+    BannerBG,
+    FeatureBG,
+    FeatureFG,
+    FragmentedBG,
+    HeroCards,
+    JoinedAvatar,
+} from "@/constants/assets/Images";
 import useScrollToTop from "@/hooks/useScrollToTop";
 import { useState, useEffect } from "react";
 import Seo from "@/components/seo";
 
 export const Home = () => {
     const [scale, setScale] = useState(1);
-    const [translation, setTranslation] = useState('');
+    const [scaleStep, setScaleStep] = useState(0.08);
+    const [translation, setTranslation] = useState("");
     const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
+    const [scrollingPos, setScrollingPos] = useState({
+        minY: 99999,
+        maxY: 99999,
+        minStickyY: 99999,
+        maxStickyY: 99999,
+    });
     useScrollToTop();
-    // const isBigScreen = useMediaQuery("(min-width: 1030px)");
 
     useEffect(() => {
-        const handleScroll = () => {
-            var circle = document.getElementById("scroll-circle");
-            var bridgingTheGap = document.getElementById("bridging-the-gap");
-            var CedroIcon = document.getElementById("cedro-icon");
-            var stickyText = document.getElementById("sticky-text");
-            var FeatureSection = document.getElementById("features");
+        var circle = document.getElementById("scroll-circle");
+        var bridgingTheGap = document.getElementById("bridging-the-gap");
+        var CedroIcon = document.getElementById("cedro-icon");
+        var stickyText = document.getElementById("sticky-text");
+        var FeatureSection = document.getElementById("features");
 
-            // var stickyPosition = stickyText?.getBoundingClientRect();
+        // Define scaling factors for smooth resizing
+        // const scaleStep = isBigScreen ? 0.08 : 0.25; // Adjust the step as needed for smoothness
+        const minScale = 1; // Minimum scale factor
+
+        const handleScroll = () => {
+            var circlePosition = circle?.getBoundingClientRect();
+            var stickyTextPosition = stickyText?.getBoundingClientRect();
             const currentScrollPos = window.scrollY;
             const scrollDelta = currentScrollPos - prevScrollPos;
-            // Define scaling factors for smooth resizing
-            const scaleStep = 0.08; // Adjust the step as needed for smoothness
-            const maxScale = 12; // Maximum scale factor
-            const minScale = 1; // Minimum scale factor
-            const minY = 700;
-            const maxY = 3000;
-            const minSticky = 1000;
-            const maxSticky = 2000;
             let newScale = scale;
-            // console.log(scrollDelta, currentScrollPos, minY, maxY, minSticky, maxSticky);
-            if (currentScrollPos > minY && currentScrollPos < maxY) {
-                //remove feature-bg
-                if (FeatureSection?.classList.contains("!bg-[#6029d7]")) FeatureSection?.classList.remove("!bg-[#6029d7]");
-                // scale
+
+            //Setting up the animation positions
+            if (
+                (circlePosition.top + circlePosition.height / 2) < window.innerHeight / 2 &&
+                scrollingPos.minY === 99999
+            ) {
+                setScrollingPos({
+                    ...scrollingPos,
+                    minY: currentScrollPos,
+                    maxY: currentScrollPos + 2000,
+                });
+            }
+            if (
+                (stickyTextPosition.top + stickyTextPosition.height / 2) < window.innerHeight / 2 &&
+                scrollingPos.minStickyY === 99999
+            ) {
+                setScrollingPos({
+                    ...scrollingPos,
+                    minStickyY: currentScrollPos,
+                    maxStickyY: currentScrollPos + 1000,
+                });
+            }
+
+            //Conditional Scroll Animation
+            if (currentScrollPos > scrollingPos.minY && currentScrollPos < scrollingPos.maxY) {
+                if (FeatureSection?.classList.contains("!bg-[#6029d7]"))
+                    FeatureSection?.classList.remove("!bg-[#6029d7]");
                 if (!circle?.classList.contains("circle")) circle?.classList.add("circle");
                 if (!circle?.classList.contains("!fixed")) circle?.classList.add("!fixed");
                 if (!bridgingTheGap?.classList.contains("opacity-0"))
@@ -51,41 +95,46 @@ export const Home = () => {
                     newScale = Math.max(minScale, scale - scaleStep);
                 } else {
                     // Scrolling down
-                    newScale = Math.min(maxScale, scale + scaleStep);
+                    newScale = scale + scaleStep;
                 }
 
                 // sticky text
-                if (currentScrollPos > minSticky) {
-                    if(newScale < 2.5) newScale = 2.5
+                if (currentScrollPos > scrollingPos.minStickyY) {
+                    if (newScale < 3) newScale = 3;
+                    // setScaleStep(0.25);
                     if (!circle?.classList.contains("!bg-[#6029D7]"))
                         circle?.classList.add("!bg-[#6029D7]");
                     if (!stickyText?.classList.contains("toggleText"))
                         stickyText?.classList.add("toggleText");
                 } else {
+                    // setScaleStep(0.08);
                     if (circle?.classList.contains("!bg-[#6029D7]"))
                         circle?.classList.remove("!bg-[#6029D7]");
                     if (stickyText?.classList.contains("toggleText"))
                         stickyText?.classList.remove("toggleText");
                 }
 
-                if (currentScrollPos > minSticky && currentScrollPos < maxSticky) {
-                    // if (stickyText?.classList.contains("smooth-transition"))
-                    // stickyText?.classList.remove("smooth-transition");
+                if (
+                    currentScrollPos > scrollingPos.minStickyY &&
+                    currentScrollPos < scrollingPos.maxStickyY
+                ) {
+                    setScaleStep(0.2);
                     if (!stickyText?.classList.contains("sticky-text"))
                         stickyText?.classList.add("sticky-text");
-                    setTranslation(`translate(-50%, -50%)`)
-                } else if(currentScrollPos < minSticky){
-                    if (stickyText?.classList.contains("sticky-text"))
-                    stickyText?.classList.remove("sticky-text");
+                    setTranslation(`translate(-50%, -50%)`);
+                } else if (currentScrollPos < scrollingPos.minStickyY) {
+                    setScaleStep(0.08);
                     if (stickyText?.classList.contains("smooth-transition"))
-                    stickyText?.classList.remove("smooth-transition");
-                setTranslation(`translate(0%, 0%)`)
-            } else if(currentScrollPos > maxSticky) {
+                        stickyText?.classList.remove("smooth-transition");
+                    if (stickyText?.classList.contains("sticky-text"))
+                        stickyText?.classList.remove("sticky-text");
+                    setTranslation(`translate(0%, 0%)`);
+                } else if (currentScrollPos > scrollingPos.maxStickyY) {
                     if (!stickyText?.classList.contains("smooth-transition"))
                         stickyText?.classList.add("smooth-transition");
-                    setTranslation(`translate(-50%, -300%)`)
+                    setTranslation(`translate(-50%, -400%)`);
                 }
-            } else if (currentScrollPos < minY) {
+            } else if (currentScrollPos < scrollingPos.minY) {
                 // above
                 newScale = 1;
                 if (circle?.classList.contains("!fixed")) circle?.classList.remove("!fixed");
@@ -93,10 +142,11 @@ export const Home = () => {
                     bridgingTheGap?.classList.remove("opacity-0");
                 if (CedroIcon?.classList.contains("opacity-0"))
                     CedroIcon?.classList.remove("opacity-0");
-            } else if (currentScrollPos > maxY) {
+            } else if (currentScrollPos > scrollingPos.maxY) {
                 // below
                 if (circle?.classList.contains("circle")) circle?.classList.remove("circle");
-                if (!FeatureSection?.classList.contains("!bg-[#6029d7]")) FeatureSection?.classList.add("!bg-[#6029d7]");
+                if (!FeatureSection?.classList.contains("!bg-[#6029d7]"))
+                    FeatureSection?.classList.add("!bg-[#6029d7]");
             }
             setScale(newScale);
             setPrevScrollPos(currentScrollPos);
@@ -143,6 +193,52 @@ export const Home = () => {
                     <img src={HeroCards} />
                 </div>
             </div>
+            <div className="fragmented-wrapper gap-12 md:gap-32">
+                <span className="title">
+                    Navigating the world of <br /> <b>fragmented liquidity</b>
+                </span>
+                <div className="relative w-[85%] md:w-[60%] ">
+                    <div className="grid grid-cols-5 items-center justify-items-center">
+                        <img
+                            src={FragmentedBG}
+                            alt="feature-card-image"
+                            className="absolute top-10 scale-[1.75] pointer-events-none z-0"
+                        />
+                        <img
+                            src={FRAG_1}
+                            className="col-span-3 -mr-[clamp(2rem,5dvw,6rem)] md:self-start z-10"
+                        />
+                        <img
+                            src={FRAG_2}
+                            className="col-span-2 -ml-[clamp(1rem,5dvw,6rem)]  mt-8 self-end z-10"
+                        />
+                        <img
+                            src={FRAG_3}
+                            className="col-span-2 -ml-[clamp(1rem,5dvw,3rem)] -mt-[clamp(2rem,8dvw,5rem)] justify-self-start self-start scale-90 lg:scale-100 z-10"
+                        />
+                        <img
+                            src={FRAG_4}
+                            className="col-span-2 -ml-[clamp(1rem,5dvw,8rem)] -mt-[clamp(1rem,5dvw,5rem)] self-start justify-self-start scale-150 z-10"
+                        />
+                        <img src={FRAG_5} className="col-span-1 self-start z-10" />
+                    </div>
+                    <div className="absolute w-full h-full top-0 z-10 grid grid-cols-5 items-center justify-items-center">
+                        <p className="description col-span-3 -mr-[clamp(1rem,1dvw,5rem)] w-[50%]">
+                            Capital Isolation Across Blockchains
+                        </p>
+                        <p className="description col-span-2 -ml-[clamp(1rem,5dvw,6rem)] w-[50%] mt-12 lg:mt-28">
+                            Constrained Yield <br />
+                            Opportunites
+                        </p>
+                        <p className="description col-span-5 ml-[clamp(1rem,5dvw,8rem)] w-[50%]">
+                            Complexity and <br />
+                            Inefficiency in Cross-
+                            <br />
+                            Chain Transactions
+                        </p>
+                    </div>
+                </div>
+            </div>
             <div className="bridgingTheGap pb-[150dvh]">
                 <div className="flex relative justify-center items-center">
                     <div
@@ -165,7 +261,7 @@ export const Home = () => {
                 </div>
                 <div
                     id="sticky-text"
-                    className="-mt-4 w-full flex flex-col justify-center px-8 gap-6"
+                    className="w-full flex flex-col justify-center px-8 gap-6"
                     style={{
                         transform: translation, // Gradually move up and down
                     }}

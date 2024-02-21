@@ -5,6 +5,7 @@ import FeatureFG from '@/assets/images/feature-fg.png'
 import FeatureBG from '@/assets/images/feature-bg.png'
 import StepBG from '@/assets/images/step-bg.png'
 import BannerBG from '@/assets/images/banner-bg.png'
+import FragmentedBG from '@/assets/images/fragmented-bg.png'
 
 export {
   CedroLogo,
@@ -13,5 +14,6 @@ export {
   FeatureFG,
   StepBG,
   FeatureBG,
-  BannerBG
+  BannerBG,
+  FragmentedBG
 }
