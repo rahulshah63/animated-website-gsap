@@ -1,34 +1,25 @@
 import { FC } from "react";
-import { useNavigate } from "react-router-dom";
 import { Button } from "../button/Button";
 
 interface IWebMenu {
     menus: {
         title: string;
-        link: string;
-        icon?: string;
-        isExternalLink?: boolean;
+        href: string;
     }[];
 }
 export const WebMenu: FC<IWebMenu> = (props) => {
     const { menus } = props || {};
-    const navigate = useNavigate();
 
     return (
         <>
-            <div className="hidden lg:flex gap-2.5 justify-center items-center ">
+            <div className="header hidden md:flex gap-2.5 justify-center items-center ">
                 {menus.map((item) => (
-                    <h6
-                        key={item.title}
-                        onClick={() =>
-                            item.isExternalLink
-                                ? window.open(item.link, "_blank", "noopener,noreferrer")
-                                : navigate(item.link)
-                        }
-                        className="m-2.5 text-base cursor-pointer w-fit"
+                    <a
+                    href={item.href}
+                        className="m-2.5 title cursor-pointer w-fit"
                     >
                         {item.title}
-                    </h6>
+                    </a>
                 ))}
             </div>
             <div className="hidden lg:flex gap-5 justify-center items-center ">

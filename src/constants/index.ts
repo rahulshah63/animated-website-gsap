@@ -9,20 +9,20 @@ export const EXTERNAL_LINKS = {
 }  
 export const MENU_LIST = {
     HowItWorks: {
-        title: 'How it works',
-        link: routes.INDEX,
+        title: 'Home',
+        href: routes.INDEX,
       },
       Benefits: {
-        title: 'Benefits',
-        link: routes.INDEX,
+        title: 'Features',
+        href: '#features',
       },
       CalculateROI: {
-        title: 'Calculate ROI',
-        link: routes.INDEX,
+        title: 'How it works',
+        href: '#steps',
       },
       FAQ: {
         title: 'FAQ',
-        link: routes.INDEX,
+        href: '#faq',
       },
     
 }

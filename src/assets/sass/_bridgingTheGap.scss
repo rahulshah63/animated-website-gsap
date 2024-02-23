@@ -19,11 +19,16 @@
         position: fixed;
         top: 50%;
         left: 50%;
+        &.center {
+            transform: translate(-50%, -50%);
+        }
+        &.above {
+            transform: translate(-50%, -500%);
+        }
     }
     
     .smooth-transition{
         transition: transform 1s ease; // Transition for smooth translating
-
     }
 
     .title {

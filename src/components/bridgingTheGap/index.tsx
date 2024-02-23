@@ -1,10 +1,11 @@
 import { BRIDGING_THE_GAP, CedroIcon } from "@/constants/assets/Icons";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useState, useEffect } from "react";
+// import * as TWEEN from '@tweenjs/tween.js'
 
 export const BridgingTheGap = () => {
     const [scale, setScale] = useState(1);
     const [scaleStep, setScaleStep] = useState(0.08);
-    const [translation, setTranslation] = useState("");
     const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
     const [scrollingPos, setScrollingPos] = useState({
         minY: 99999,
@@ -12,6 +13,9 @@ export const BridgingTheGap = () => {
         minStickyY: 99999,
         maxStickyY: 99999,
     });
+    const isBigScreen = useMediaQuery('(min-width: 1080px)')
+    console.log({isBigScreen});
+    
     useEffect(() => {
         var circle = document.getElementById("scroll-circle");
         var bridgingTheGap = document.getElementById("bridging-the-gap");
@@ -29,7 +33,9 @@ export const BridgingTheGap = () => {
             const currentScrollPos = window.scrollY;
             const scrollDelta = currentScrollPos - prevScrollPos;
             let newScale = scale;
-
+            console.log({currentScrollPos});
+            
+            
             //Setting up the animation positions
             if (
                 circlePosition.top + circlePosition.height / 2 < window.innerHeight / 2 &&
@@ -38,7 +44,7 @@ export const BridgingTheGap = () => {
                 setScrollingPos({
                     ...scrollingPos,
                     minY: currentScrollPos,
-                    maxY: currentScrollPos + 2000,
+                    maxY: currentScrollPos + (isBigScreen ? 2000 : 1600),
                 });
             }
             if (
@@ -48,7 +54,7 @@ export const BridgingTheGap = () => {
                 setScrollingPos({
                     ...scrollingPos,
                     minStickyY: currentScrollPos,
-                    maxStickyY: currentScrollPos + 1000,
+                    maxStickyY: currentScrollPos + (isBigScreen ? 1000 : 700),
                 });
             }
 
@@ -92,19 +98,24 @@ export const BridgingTheGap = () => {
                 ) {
                     setScaleStep(0.2);
                     if (!stickyText?.classList.contains("sticky-text"))
-                        stickyText?.classList.add("sticky-text");
-                    setTranslation(`translate(-50%, -50%)`);
+                        stickyText?.classList.add(...["sticky-text", "center"]);
+                    if (stickyText?.classList.contains("above"))
+                        stickyText?.classList.replace("above", "center");
+
+                    // setTranslation(`translate(-50%, -50%)`);
                 } else if (currentScrollPos < scrollingPos.minStickyY) {
                     setScaleStep(0.08);
                     if (stickyText?.classList.contains("smooth-transition"))
                         stickyText?.classList.remove("smooth-transition");
                     if (stickyText?.classList.contains("sticky-text"))
                         stickyText?.classList.remove("sticky-text");
-                    setTranslation(`translate(0%, 0%)`);
+                    // setTranslation(`translate(0%, 0%)`);
                 } else if (currentScrollPos > scrollingPos.maxStickyY) {
                     if (!stickyText?.classList.contains("smooth-transition"))
                         stickyText?.classList.add("smooth-transition");
-                    setTranslation(`translate(-50%, -400%)`);
+                    if (stickyText?.classList.contains("center"))
+                        stickyText?.classList.replace("center", "above");
+                    // setTranslation(`translate(-50%, -400%)`);
                 }
             } else if (currentScrollPos < scrollingPos.minY) {
                 // above
@@ -120,10 +131,35 @@ export const BridgingTheGap = () => {
                 if (!FeatureSection?.classList.contains("!bg-[#6029d7]"))
                     FeatureSection?.classList.add("!bg-[#6029d7]");
             }
+            console.log({newScale});
+            
+            // new TWEEN.Tween({scale})
+            // .to({ x: newScale }, 10)
+            // .easing(TWEEN.Easing.Cubic.In)
+            // .onUpdate((val) => {
+            //     console.log(val);
+                
+            //   setScale(val.scale);
+            // })
+            // .start();
+
+
+			// animate(performance.now())
+
+			// //If we register the callback animate, but the TWEEN.update(time) returns false,
+			// //cancel/unregister the handler
+			// function animate(time) {
+			// 	var id = requestAnimationFrame(animate)
+
+			// 	var result = TWEEN.update(time)
+
+			// 	if (!result) cancelAnimationFrame(id)
+			// }
+
             setScale(newScale);
             setPrevScrollPos(currentScrollPos);
         };
-
+        
         window.addEventListener("scroll", handleScroll);
 
         return () => {
@@ -147,9 +183,6 @@ export const BridgingTheGap = () => {
             <div
                 id="sticky-text"
                 className="w-full flex flex-col justify-center px-8 gap-6"
-                style={{
-                    transform: translation, // Gradually move up and down
-                }}
             >
                 <span className="title z-20">
                     <text className="blue font-bold">Bridging the Gaps </text>

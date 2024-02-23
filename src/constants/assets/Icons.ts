@@ -7,6 +7,7 @@ import Nike from "@/assets/icons/nike.svg?react";
 import Addidas from "@/assets/icons/addidas.svg?react";
 import Ritter from "@/assets/icons/ritter.svg?react";
 import PLUS from "@/assets/icons/plus-icon.svg?react";
+import CROSS from "@/assets/icons/cross.svg?react";
 import TWITTER from "@/assets/icons/social/twitter.svg?react";
 import TELEGRAM from "@/assets/icons/social/telegram.svg?react";
 import DISCORD from "@/assets/icons/social/discord.svg?react";
@@ -17,6 +18,8 @@ import FRAG_2 from "@/assets/icons/fragmented/frag-2.svg?react";
 import FRAG_3 from "@/assets/icons/fragmented/frag-3.svg?react";
 import FRAG_4 from "@/assets/icons/fragmented/frag-4.svg?react";
 import FRAG_5 from "@/assets/icons/fragmented/frag-5.svg?react";
+import FRAG from "@/assets/icons/fragmented/frag.svg?react";
+import FRAG_SEP from "@/assets/icons/fragmented/frag-seprated.svg?react";
 
 export {
     CedroText,
@@ -28,6 +31,7 @@ export {
     Nike,
     Ritter,
     PLUS,
+    CROSS,
     DISCORD,
     MEDIUM,
     TELEGRAM,
@@ -38,4 +42,5 @@ export {
     FRAG_3,
     FRAG_4,
     FRAG_5,
+  FRAG_SEP,  FRAG
 };

@@ -82,7 +82,7 @@ const FAQ = () => {
     const [faqIds, setFaqIds] = useState<number[]>([]);
 
     return (
-        <div className="faq-wrapper flex flex-col mx-auto justify-center items-center w-full">
+        <div id='faq' className="faq-wrapper flex flex-col mx-auto justify-center items-center w-full">
             <span className="title">Frequently asked questions</span>
             <p className="description mt-8 mb-16">Everything you need to know about the product.</p>
             {FAQList.map((item, index) => (

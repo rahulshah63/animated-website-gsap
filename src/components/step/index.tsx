@@ -3,7 +3,7 @@ import { Button } from "@/components/button/Button";
 
 export const Step = () => {
     return (
-        <div className="step-wrapper flex flex-col gap-[1.875rem] md:gap-[3.875rem] mt-[3.75rem] md:mt-[11.5rem] justify-center">
+        <div id='steps' className="step-wrapper flex flex-col gap-[1.875rem] md:gap-[3.875rem] mt-[3.75rem] md:mt-[11.5rem] justify-center">
         <span className="title">
             Get Started in{" "}
             <text className="text-[#6029D7] font-semibold">

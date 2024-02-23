@@ -1,4 +1,4 @@
-import { ReactNode, FC } from 'react';
+import { ReactNode, FC, useState } from 'react';
 import Header from './header';
 import Footer from './footer';
 
@@ -19,11 +19,13 @@ const Layout: FC<LayoutProps> = ({
   headerClass,
   mainClass,
 }: LayoutProps) => {
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+
   return (
     <div className={`flex flex-col justify-between items-center min-h-screen bg-[rgb(244,240,250)] site-layout overflow-hidden ${className ?? ''}`}>
-      {!hideheader && <Header classname={headerClass} />}
+      {!hideheader && <Header setShowMobileMenu={setShowMobileMenu} showMobileMenu={showMobileMenu} classname={headerClass} />}
       <main className={`w-full  ${mainClass}`}>
-        {children}
+        {!showMobileMenu  && children}
       </main>
       {!hideFooter && <Footer classname='bg-white'/>}
     </div>
