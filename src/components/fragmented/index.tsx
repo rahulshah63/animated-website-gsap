@@ -1,6 +1,7 @@
 import { FRAG } from "@/constants/assets/Icons";
 // import { FragmentedBG } from "@/constants/assets/Images";
-
+// transform="rotate(45 50 50)"
+// setAttribute
 export const Fragmented = () => {
     return (
         <div className="fragmented-wrapper">
@@ -8,7 +9,7 @@ export const Fragmented = () => {
                 Navigating the world of <br /> <b>fragmented liquidity</b>
             </span>
             <div className="relative w-[85%] md:w-[60%] ">
-                <FRAG className="scale-150"/>
+                <FRAG id='frag' className="scale-150"/>
                 {/* <FRAG_SEP className="z-[10]"/> */}
                 {/* <div className="flex justify-center items-center">
                 <img

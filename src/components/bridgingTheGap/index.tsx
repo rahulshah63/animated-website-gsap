@@ -1,5 +1,6 @@
 import { BRIDGING_THE_GAP, CedroIcon } from "@/constants/assets/Icons";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import Lenis from "@studio-freight/lenis";
 import { useState, useEffect } from "react";
 // import * as TWEEN from '@tweenjs/tween.js'
 
@@ -12,9 +13,9 @@ export const BridgingTheGap = () => {
         maxY: 99999,
         minStickyY: 99999,
         maxStickyY: 99999,
+        minFragY: 99999,
     });
     const isBigScreen = useMediaQuery('(min-width: 1080px)')
-    console.log({isBigScreen});
     
     useEffect(() => {
         var circle = document.getElementById("scroll-circle");
@@ -23,20 +24,34 @@ export const BridgingTheGap = () => {
         var stickyText = document.getElementById("sticky-text");
         var FeatureSection = document.getElementById("features");
 
+        var Frag = document.getElementById("frag");
+        var Frag1 = document.getElementById("frag-1");
+        var Frag2 = document.getElementById("frag-2");
+        var Frag3 = document.getElementById("frag-3");
+        var Frag4 = document.getElementById("frag-4");
+        var Frag5 = document.getElementById("frag-5");
         // Define scaling factors for smooth resizing
         // const scaleStep = isBigScreen ? 0.08 : 0.25; // Adjust the step as needed for smoothness
         const minScale = 1; // Minimum scale factor
 
         const handleScroll = () => {
+            var fragPosition = Frag?.getBoundingClientRect();
             var circlePosition = circle?.getBoundingClientRect();
             var stickyTextPosition = stickyText?.getBoundingClientRect();
             const currentScrollPos = window.scrollY;
             const scrollDelta = currentScrollPos - prevScrollPos;
-            let newScale = scale;
-            console.log({currentScrollPos});
-            
+            let newScale = scale;            
             
             //Setting up the animation positions
+            if (
+                fragPosition.top + fragPosition.height / 2 < window.innerHeight / 2 &&
+                scrollingPos.minFragY === 99999
+            ) {
+                setScrollingPos({
+                    ...scrollingPos,
+                    minFragY: currentScrollPos,
+                });
+            }
             if (
                 circlePosition.top + circlePosition.height / 2 < window.innerHeight / 2 &&
                 scrollingPos.minY === 99999
@@ -44,7 +59,7 @@ export const BridgingTheGap = () => {
                 setScrollingPos({
                     ...scrollingPos,
                     minY: currentScrollPos,
-                    maxY: currentScrollPos + (isBigScreen ? 2000 : 1600),
+                    maxY: currentScrollPos + (isBigScreen ? 2500 : 1600),
                 });
             }
             if (
@@ -59,6 +74,38 @@ export const BridgingTheGap = () => {
             }
 
             //Conditional Scroll Animation
+            if (currentScrollPos > scrollingPos.minFragY && currentScrollPos < scrollingPos.minY){
+                //center the fragmented piece
+                if(currentScrollPos < scrollingPos.minFragY + 500){
+                    if(scrollDelta < 0){
+                        Frag1.setAttribute('transform', `translate(${Math.min(-50, scaleStep * scrollDelta)} 0)`)
+                        Frag2.setAttribute('transform', `translate(${Math.max(50, scaleStep * scrollDelta)} ${Math.min(-10, scaleStep * scrollDelta)})`)
+                        Frag3.setAttribute('transform', `translate(${Math.min(-150, scaleStep * scrollDelta)} ${Math.max(40, scaleStep * scrollDelta)})`)
+                        Frag4.setAttribute('transform', `translate(${Math.min(-50, scaleStep * scrollDelta)} ${Math.max(50, scaleStep * scrollDelta)})`)
+                        Frag5.setAttribute('transform', `translate(${Math.max(150, scaleStep * scrollDelta)} ${Math.max(50, scaleStep * scrollDelta)})`)
+                    }
+                    else{
+                        Frag1.setAttribute('transform', `translate(${Math.max(0, -50 + scaleStep * scrollDelta)} 0)`)
+                        Frag2.setAttribute('transform', `translate(${Math.min(0, 50 - scaleStep * scrollDelta)} ${Math.max(0, -10 + scaleStep * scrollDelta)})`)
+                        Frag3.setAttribute('transform', `translate(${Math.max(0, -150 + scaleStep * scrollDelta)} ${Math.min(0, 40 - scaleStep * scrollDelta)})`)
+                        Frag4.setAttribute('transform', `translate(${Math.max(0, -50 + scaleStep * scrollDelta)} ${Math.min(0, 50 - scaleStep * scrollDelta)})`)
+                        Frag5.setAttribute('transform', `translate(${Math.min(0, 150 - scaleStep * scrollDelta)} ${Math.min(0, 50 - scaleStep * scrollDelta)})`)
+                    }
+                }
+                else{
+                    //TODO: scale down to 24dwd or 240px
+                    Frag.classList.forEach((value) =>{
+                        const reg = new RegExp('/\bscale-\b/')
+                        if(reg.test(value)){
+                            // Frag.classList.replace(value, `scale-[${scrollDelta}]`)
+                        }
+                        else{
+
+                        }
+                    })
+                }
+            }
+
             if (currentScrollPos > scrollingPos.minY && currentScrollPos < scrollingPos.maxY) {
                 if (FeatureSection?.classList.contains("!bg-[#6029d7]"))
                     FeatureSection?.classList.remove("!bg-[#6029d7]");
@@ -96,7 +143,7 @@ export const BridgingTheGap = () => {
                     currentScrollPos > scrollingPos.minStickyY &&
                     currentScrollPos < scrollingPos.maxStickyY
                 ) {
-                    setScaleStep(0.2);
+                    // setScaleStep(0.2);
                     if (!stickyText?.classList.contains("sticky-text"))
                         stickyText?.classList.add(...["sticky-text", "center"]);
                     if (stickyText?.classList.contains("above"))
@@ -104,7 +151,7 @@ export const BridgingTheGap = () => {
 
                     // setTranslation(`translate(-50%, -50%)`);
                 } else if (currentScrollPos < scrollingPos.minStickyY) {
-                    setScaleStep(0.08);
+                    // setScaleStep(0.08);
                     if (stickyText?.classList.contains("smooth-transition"))
                         stickyText?.classList.remove("smooth-transition");
                     if (stickyText?.classList.contains("sticky-text"))
@@ -131,7 +178,8 @@ export const BridgingTheGap = () => {
                 if (!FeatureSection?.classList.contains("!bg-[#6029d7]"))
                     FeatureSection?.classList.add("!bg-[#6029d7]");
             }
-            console.log({newScale});
+            console.log(currentScrollPos, newScale);
+
             
             // new TWEEN.Tween({scale})
             // .to({ x: newScale }, 10)
@@ -159,10 +207,34 @@ export const BridgingTheGap = () => {
             setScale(newScale);
             setPrevScrollPos(currentScrollPos);
         };
+
+        // const lenis = new Lenis({
+        //     duration: 0.2,
+        //     // smoothWheel: true,
+        //     // touchMultiplier: 2,
+        // })
+
+        // lenis.on('scroll', handleScroll)
+    
+        // function raf(time) {
+        // lenis.raf(time)
+        // requestAnimationFrame(raf)
+        // }
+    
+        // requestAnimationFrame(raf)
         
         window.addEventListener("scroll", handleScroll);
+        window.addEventListener('load', () => {
+            Frag1.setAttribute('transform', 'translate(-50 0)') 
+            Frag2.setAttribute('transform', 'translate(50 -10)')
+            Frag3.setAttribute('transform', 'translate(-150 40)')
+            Frag4.setAttribute('transform', 'translate(-50 50)')
+            Frag5.setAttribute('transform', 'translate(150 50)')
+        })
 
+        
         return () => {
+            // lenis.on('scroll', handleScroll)
             window.removeEventListener("scroll", handleScroll);
         };
     }, [prevScrollPos]);
