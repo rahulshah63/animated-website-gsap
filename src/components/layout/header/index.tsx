@@ -10,9 +10,10 @@ interface IHeader {
     classname?: string;
     showMobileMenu: boolean, 
     setShowMobileMenu: React.Dispatch<React.SetStateAction<boolean>>
+    scrollTo: (target: string) => void;
 }
 
-const Header: FC<IHeader> = ({ classname, showMobileMenu, setShowMobileMenu }) => {
+const Header: FC<IHeader> = ({ scrollTo, classname, showMobileMenu, setShowMobileMenu }) => {
     const MENUS = Object.values(MENU_LIST);
 
     return (
@@ -23,8 +24,8 @@ const Header: FC<IHeader> = ({ classname, showMobileMenu, setShowMobileMenu }) =
                 <CedroIcon className="w-[2.15rem] h-[2.15rem]" />
                 <CedroText className="h-[2.15rem]" />
             </Link>
-            <MobileMenu showmenu={showMobileMenu} menus={MENUS} />
-            <WebMenu menus={MENUS} />
+            <MobileMenu scrollTo={scrollTo} showmenu={showMobileMenu} menus={MENUS} />
+            <WebMenu scrollTo={scrollTo} menus={MENUS} />
 
             <div
                 className={cn("md:hidden w-[2.125rem] h-[2.125rem] z-10",)}

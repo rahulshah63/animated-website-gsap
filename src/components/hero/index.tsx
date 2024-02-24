@@ -4,7 +4,7 @@ import { Button } from "../button/Button"
 export const Hero = () => {
     return (
         <div className="px-5 sm:px-[1.5rem] lg:px-[3rem] xl:px-[5rem] relative h-screen w-full flex flex-col sm:flex-row justify-around items-center">
-        <div className="absolute -top-[3%] -z-10 md:-right-1/2 pink-gradient h-full w-full scale-125" />
+        <div className="absolute -top-[3%] -z-10 md:-right-1/2 pink-gradient h-full w-full scale-x-125 scale-y-[2]" />
         <div className="flex flex-col gap-5">
             <span className="heading">
                 Convert <b>Native Assets</b> to <b>OmniAssets</b>

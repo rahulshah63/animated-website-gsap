@@ -6,16 +6,17 @@ interface IWebMenu {
         title: string;
         href: string;
     }[];
+    scrollTo: (target: string) => void;
 }
 export const WebMenu: FC<IWebMenu> = (props) => {
-    const { menus } = props || {};
+    const { menus, scrollTo } = props || {};
 
     return (
         <>
             <div className="header hidden md:flex gap-2.5 justify-center items-center ">
                 {menus.map((item) => (
                     <a
-                    href={item.href}
+                    onClick={() => scrollTo(item.href)} 
                         className="m-2.5 title cursor-pointer w-fit"
                     >
                         {item.title}

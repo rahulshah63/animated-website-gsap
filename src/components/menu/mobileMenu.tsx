@@ -6,12 +6,13 @@ import { Button } from "../button/Button";
 
 interface IMobileMenu {
     showmenu: boolean;
+    scrollTo: (target: string) => void;
     menus: {
         title: string;
         href: string;
     }[];
 }
-export const MobileMenu: FC<IMobileMenu> = ({ showmenu, menus }) => {
+export const MobileMenu: FC<IMobileMenu> = ({ scrollTo, showmenu, menus }) => {
     return (
         <div
             className={cn(
@@ -25,7 +26,7 @@ export const MobileMenu: FC<IMobileMenu> = ({ showmenu, menus }) => {
             <div className="flex flex-col align-center items-center gap-10 mt-[100px] mb-[30px]">
                 {menus.map((item) => (
                     <div key={item.title} className="w-full flex flex-col items-center over">
-                        <a href={item.href} className="cursor-pointer title w-fit">
+                        <a onClick={() => scrollTo(item.href)} className="cursor-pointer title w-fit">
                             {item.title}
                         </a>
                     </div>
