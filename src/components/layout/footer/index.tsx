@@ -28,7 +28,7 @@ const Footer: FC<IFooter> = ({ classname }) => {
                     <input
                         type="text"
                         placeholder="Enter your email"
-                        className="w-full pl-2 outline-none text-gray-700"
+                        className="w-full pl-2 outline-none text-gray-700 bg-[#faf7ff] h-full"
                     />
                     <Button
                         className="!h-[2.75rem] md:!h-[3.75rem] w-[60%] !px-0"
