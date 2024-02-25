@@ -1,4 +1,5 @@
 import { FRAG } from "@/constants/assets/Icons";
+import { cn } from "@/utils/cn";
 
 export const Fragmented = () => {
     return (
@@ -6,12 +7,16 @@ export const Fragmented = () => {
             <span className="title my-20">
                 Navigating the world of <br /> <b>fragmented liquidity</b>
             </span>
-            <div className="bridgingTheGap relative flex justify-center items-center w-full md:w-[80%] ">
-                <FRAG id='frag'/>
+            <div id='frag-wrapper' className="bridgingTheGap relative flex justify-center items-center w-full md:w-[80%] child:!m-0">
+                <FRAG id='frag' className={cn('!top-0 !left-0')}/>
                 <div
+                    id="scroll-circle"
+                    className="circle absolute opacity-0 !z-10"
+                />
+                {/* <div
                     id="frag-circle"
                     className="circle opacity-0"
-                />
+                /> */}
             </div>
         </div>
     );

@@ -11,19 +11,22 @@ import { BridgingTheGap } from "@/components/bridgingTheGap";
 import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-// import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import { useGSAP } from "@gsap/react";
-// import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export const Home = () => {
     useScrollToTop();
     const main = useRef();
-    // const isBigScreen = useMediaQuery("(min-width: 1080px)");
+    const isBigScreen = useMediaQuery("(min-width: 1080px)");
+    const isXlScreen = useMediaQuery("(min-width: 1440px)");
 
     useGSAP(
         () => {
+            gsap.set("#frag", {
+                filter: 'brightness(1)',
+            });
             gsap.set("#frag-1", {
                 translateX: "-50",
                 translateY: "0",
@@ -46,8 +49,16 @@ export const Home = () => {
             });
             //fragments
             gsap.to("#frag", {
-                scale: 0.6,
+                scale: 0.2,
                 opacity: 0,
+                scrollTrigger: {
+                    trigger: "#frag",
+                    start: "center 40%",
+                    scrub: true,
+                },
+            });
+            gsap.to("#frag", {
+                filter: 'brightness(5)',
                 scrollTrigger: {
                     trigger: "#frag",
                     pin: true,
@@ -61,7 +72,7 @@ export const Home = () => {
                 scrollTrigger: {
                     trigger: "#frag",
                     start: "center center",
-                    end: "bottom 40%",
+                    end: "20%",
                     scrub: true,
                 },
             });
@@ -71,7 +82,7 @@ export const Home = () => {
                 scrollTrigger: {
                     trigger: "#frag",
                     start: "center center",
-                    end: "bottom 40%",
+                    end: "20%",
                     scrub: true,
                 },
             });
@@ -81,7 +92,7 @@ export const Home = () => {
                 scrollTrigger: {
                     trigger: "#frag",
                     start: "center center",
-                    end: "bottom 40%",
+                    end: "20%",
                     scrub: true,
                 },
             });
@@ -91,7 +102,7 @@ export const Home = () => {
                 scrollTrigger: {
                     trigger: "#frag",
                     start: "center center",
-                    end: "bottom 40%",
+                    end: "20%",
                     scrub: true,
                 },
             });
@@ -101,20 +112,38 @@ export const Home = () => {
                 scrollTrigger: {
                     trigger: "#frag",
                     start: "center center",
-                    end: "bottom 40%",
+                    end: "20%",
                     scrub: true,
                 },
             });
 
             //circle
-            gsap.to("#scroll-circle", {
-                scale: 14,
+            gsap.to("#frag-wrapper", {
                 scrollTrigger: {
-                    trigger: "#scroll-circle",
+                    trigger: "#frag-wrapper",
                     pin: true,
                     start: "center center",
-                    end: "400%",
+                    end: isBigScreen ? "100%" : "200%",
                     scrub: true,
+                },
+            });
+
+            gsap.to("#scroll-circle", {
+                opacity: 1,
+                scrollTrigger: {
+                    trigger: "#frag-wrapper",
+                    start: "center center",
+                    end: "40%",
+                    scrub: true,
+                },
+            });
+            gsap.to("#scroll-circle", {
+                scale: isXlScreen ? 16 : 12,
+                scrollTrigger: {
+                    trigger: "#bridging-the-gap",
+                    start: "center center",
+                    scrub: true,
+                    markers: true
                 },
             });
             gsap.to("#scroll-circle", {
@@ -131,7 +160,7 @@ export const Home = () => {
                     trigger: "#sticky-text-wrapper",
                     pin: true,
                     start: "center center",
-                    end: "300%",
+                    end: "200%",
                     scrub: true,
                 },
             });
@@ -166,25 +195,25 @@ export const Home = () => {
                 background: "#6029d7",
                 scrollTrigger: {
                     trigger: "#scroll-circle",
-                    start: "center center",
+                    start: "center bottom",
                     scrub: true,
                 },
             });
             gsap.to("#bridging-the-gap", {
                 opacity: 0,
                 scrollTrigger: {
-                    trigger: "#scroll-circle",
+                    trigger: "#bridging-the-gap",
                     start: "center center",
-                    //   end: '0.001%',
+                      end: '0%',
                     scrub: true,
                 },
             });
             gsap.to("#cedro-icon", {
                 opacity: 0,
                 scrollTrigger: {
-                    trigger: "#scroll-circle",
+                    trigger: "#cedro-icon",
                     start: "center center",
-                    //   end: '0.001%',
+                      end: '0%',
                     scrub: true,
                 },
             });
