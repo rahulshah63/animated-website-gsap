@@ -3,14 +3,10 @@ import { BRIDGING_THE_GAP, CedroIcon } from "@/constants/assets/Icons";
 export const BridgingTheGap = () => {
    
     return (
-        <div id='bridging-the-gap-wrapper' className="bridgingTheGap">
-            <div className="flex relative justify-center items-center">
-                {/* <div
-                    id="scroll-circle"
-                    className="circle"
-                /> */}
-                <BRIDGING_THE_GAP id="bridging-the-gap" className="w-[80%] max-w-[48rem] -z-0" />
-                <CedroIcon id="cedro-icon" className="absolute w-[14%] md:w-auto z-20" />
+        <div  className="bridgingTheGap">
+            <div id='bridging-the-gap-wrapper' className="flex relative justify-center items-center">
+                <BRIDGING_THE_GAP id="bridging-the-gap" className="w-[80%] max-w-[48rem] !-z-0" />
+                <CedroIcon id="cedro-icon" className="absolute w-[14%] md:w-auto !z-20" />
             </div>
             <div id="sticky-text-wrapper"  className="w-full flex flex-col justify-center px-8 gap-6">
                 <span id="sticky-text" className="title z-20">

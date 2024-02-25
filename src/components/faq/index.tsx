@@ -1,4 +1,3 @@
-// import { ARROW_UP } from "@/constants/images";
 import React, { FC, ReactNode, useState } from "react";
 
 import { PLUS } from "@/constants/assets/Icons";
@@ -78,7 +77,7 @@ const FAQList = [
     },
 ];
 
-const FAQ = () => {
+export const FAQ = () => {
     const [faqIds, setFaqIds] = useState<number[]>([]);
 
     return (
@@ -135,4 +134,3 @@ const FAQItem: FC<IFAQItem> = ({ question, answer, id, faqIds, setFaqIds }) => {
     );
 };
 
-export default FAQ;
