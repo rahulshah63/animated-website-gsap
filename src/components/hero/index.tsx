@@ -1,5 +1,6 @@
 import { JoinedAvatar, HeroCards } from "@/constants/assets/Images"
 import { Button } from "../button/Button"
+import { EXTERNAL_LINKS } from "@/constants"
 
 export const Hero = () => {
     return (
@@ -17,13 +18,15 @@ export const Hero = () => {
                     textColor="text-white"
                     bgColor="bg-[rgba(113,60,238,1)]"
                     text="Join Waitlist"
-                    handleClick={() => {}}
+                    handleClick={() => document.getElementById('join-waitlist').focus()}
                 />
                 <Button
                     bgColor="bg-white"
                     textColor="text-[rgba(113,60,238,1)]"
                     text="Launch Demo"
-                    handleClick={() => {}}
+                    handleClick={() => 
+                        window.open(EXTERNAL_LINKS.DEMO, "_blank")
+                    }
                 />
             </div>
             <span className="joined inline-flex gap-3 items-center">

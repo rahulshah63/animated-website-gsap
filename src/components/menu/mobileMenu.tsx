@@ -1,17 +1,18 @@
 import { EXTERNAL_LINKS } from "@/constants/index";
 import { cn } from "@/utils/cn";
-import { FC } from "react";
+import React, { FC } from "react";
 import { TWITTER, DISCORD, MEDIUM, TELEGRAM } from "@/constants/assets/Icons";
 import { Button } from "../button/Button";
 
 interface IMobileMenu {
     showmenu: boolean;
+    setShowMobileMenu: React.Dispatch<React.SetStateAction<boolean>>;
     menus: {
         title: string;
         href: string;
     }[];
 }
-export const MobileMenu: FC<IMobileMenu> = ({ showmenu, menus }) => {
+export const MobileMenu: FC<IMobileMenu> = ({ setShowMobileMenu, showmenu, menus }) => {
     return (
         <div
             className={cn(
@@ -21,11 +22,17 @@ export const MobileMenu: FC<IMobileMenu> = ({ showmenu, menus }) => {
                 }
             )}
         >
-        <div className="absolute -z-10 scale-[2] -right-1/2 top-1/4 pink-gradient h-full w-full" />
+            <div className="absolute -z-10 scale-[2] -right-1/2 top-1/4 pink-gradient h-full w-full" />
             <div className="flex flex-col align-center items-center gap-10 mt-[100px] mb-[30px]">
                 {menus.map((item) => (
                     <div key={item.title} className="w-full flex flex-col items-center over">
-                        <a href={item.href} className="cursor-pointer title w-fit">
+                        <a
+                            href={item.href}
+                            onClick={() => {
+                                setShowMobileMenu(false);
+                            }}
+                            className="cursor-pointer title w-fit"
+                        >
                             {item.title}
                         </a>
                     </div>
@@ -36,14 +43,20 @@ export const MobileMenu: FC<IMobileMenu> = ({ showmenu, menus }) => {
                         bgColor="bg-[#713CEE]"
                         textColor="text-white"
                         text="Join Waitlist"
-                        handleClick={() => {}}
+                        handleClick={() => {
+                            setShowMobileMenu(false);
+                            setTimeout(
+                                () => document.getElementById("join-waitlist").focus(),
+                                10
+                            );
+                        }}
                     />
                     <Button
                         className="w-[60%]"
                         bgColor="bg-white"
                         textColor="text-black"
                         text="Launch Demo"
-                        handleClick={() => {}}
+                        handleClick={() => window.open(EXTERNAL_LINKS.DEMO, "_blank")}
                     />
                 </div>
             </div>

@@ -225,7 +225,8 @@ export const Home = () => {
 
     return (
         <div id="smooth-wrapper" ref={main}>
-            <Seo title="Cedro Finance" description="Convert Native Assets to OmniAssets." />
+            <Seo title="Cedro Finance | Lend and borrow the assets with cross-chain decentralized liquidity protocol." 
+            description="Cedro Finance is a cross-chain decentralized liquidity protocol where users can lend and borrow the listed assets." />
             <div id="smooth-content">
                 <Hero />
 

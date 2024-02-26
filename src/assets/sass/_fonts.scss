@@ -1,70 +1,60 @@
-@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;200;300;400;500;600;700;800;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;200;300;400;500;600;700;800;900&family=Manrope:wght@200;300;400;500;600;700;800&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
 // ../fonts/
 @font-face {
     font-family: "Matter";
-    src: url("../fonts/Matter-Heavy.eot");
+    src: url("../fonts/Matter-Heavy.ttf");
     src:
         local("Matter Heavy"),
         local("Matter-Heavy"),
-        url("../fonts/Matter-Heavy.eot?#iefix") format("embedded-opentype"),
         url("../fonts/Matter-Heavy.ttf") format("truetype");
     font-weight: 800;
     font-style: normal;
 }
 @font-face {
     font-family: "Matter";
-    src: url("../fonts/Matter-Bold.eot");
+    src: url("../fonts/Matter-Bold.ttf");
     src:
         local("Matter Bold"),
         local("Matter-Bold"),
-        url("../fonts/Matter-Bold.eot?#iefix") format("embedded-opentype"),
         url("../fonts/Matter-Bold.ttf") format("truetype");
     font-weight: 700;
     font-style: normal;
 }
 @font-face {
     font-family: "Matter";
-    src: url("../fonts/Matter-SemiBold.eot");
+    src: url("../fonts/Matter-SemiBold.ttf");
     src:
         local("Matter SemiBold"),
         local("Matter-SemiBold"),
-        url("../fonts/Matter-SemiBold.eot?#iefix") format("embedded-opentype"),
         url("../fonts/Matter-SemiBold.ttf") format("truetype");
     font-weight: 600;
     font-style: normal;
 }
 @font-face {
     font-family: "Matter";
-    src: url("../fonts/Matter-Medium.eot");
+    src: url("../fonts/Matter-Medium.ttf");
     src:
         local("Matter Medium"),
         local("Matter-Medium"),
-        url("../fonts/Matter-Medium.eot?#iefix") format("embedded-opentype"),
         url("../fonts/Matter-Medium.ttf") format("truetype");
     font-weight: 500;
     font-style: normal;
 }
 @font-face {
     font-family: "Matter";
-    src: url("../fonts/Matter-Regular.eot");
+    src: url("../fonts/Matter-Regular.ttf");
     src:
         local("Matter Regular"),
         local("Matter-Regular"),
-        url("../fonts/Matter-Regular.eot?#iefix") format("embedded-opentype"),
         url("../fonts/Matter-Regular.ttf") format("truetype");
     font-weight: 400;
     font-style: normal;
 }
 @font-face {
     font-family: "Matter";
-    src: url("../fonts/Matter-Light.eot");
+    src: url("../fonts/Matter-Light.ttf");
     src:
         local("Matter Light"),
         local("Matter-Light"),
-        url("../fonts/Matter-Light.eot?#iefix") format("embedded-opentype"),
         url("../fonts/Matter-Light.ttf") format("truetype");
     font-weight: 300;
     font-style: normal;
