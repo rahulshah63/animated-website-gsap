@@ -3,7 +3,7 @@ import { BRIDGING_THE_GAP, CedroIcon } from "@/constants/assets/Icons";
 export const BridgingTheGap = () => {
    
     return (
-        <div  className="bridgingTheGap">
+        <div  className="bridgingTheGap mt-[20rem]">
             <div id='bridging-the-gap-wrapper' className="flex relative justify-center items-center">
                 <BRIDGING_THE_GAP id="bridging-the-gap" className="w-[80%] max-w-[48rem] !-z-0" />
                 <CedroIcon id="cedro-icon" className="absolute w-[14%] md:w-auto !z-20" />

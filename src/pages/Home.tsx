@@ -21,7 +21,9 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 export const Home = () => {
     useScrollToTop();
     const main = useRef();
-    const isBigScreen = useMediaQuery("(min-width: 1080px)");
+    const isBiggerScreen = useMediaQuery("(min-width: 1080px)");
+    const isBigScreen = useMediaQuery("(min-width: 768px)");
+    const isMediumScreen = useMediaQuery("(min-width: 420px)");
 
     useGSAP(
         () => {
@@ -54,7 +56,8 @@ export const Home = () => {
                 opacity: 0,
                 scrollTrigger: {
                     trigger: "#frag",
-                    start: "center 40%",
+                    start: "81%",
+                    end: "150%",
                     scrub: true,
                 },
             });
@@ -64,6 +67,7 @@ export const Home = () => {
                     trigger: "#frag",
                     pin: true,
                     start: "center center",
+                    end: "200%",
                     scrub: true,
                 },
             });
@@ -73,7 +77,7 @@ export const Home = () => {
                 scrollTrigger: {
                     trigger: "#frag",
                     start: "center center",
-                    end: "20%",
+                    end: "80%",
                     scrub: true,
                 },
             });
@@ -83,7 +87,7 @@ export const Home = () => {
                 scrollTrigger: {
                     trigger: "#frag",
                     start: "center center",
-                    end: "20%",
+                    end: "80%",
                     scrub: true,
                 },
             });
@@ -93,7 +97,7 @@ export const Home = () => {
                 scrollTrigger: {
                     trigger: "#frag",
                     start: "center center",
-                    end: "20%",
+                    end: "80%",
                     scrub: true,
                 },
             });
@@ -103,7 +107,7 @@ export const Home = () => {
                 scrollTrigger: {
                     trigger: "#frag",
                     start: "center center",
-                    end: "20%",
+                    end: "80%",
                     scrub: true,
                 },
             });
@@ -113,7 +117,7 @@ export const Home = () => {
                 scrollTrigger: {
                     trigger: "#frag",
                     start: "center center",
-                    end: "20%",
+                    end: "80%",
                     scrub: true,
                 },
             });
@@ -124,7 +128,7 @@ export const Home = () => {
                     trigger: "#frag-wrapper",
                     pin: true,
                     start: "center center",
-                    end: "300%",
+                    end: isBiggerScreen ? "300%" : isBigScreen ? "350%" : isMediumScreen ? "400%" : "750%",
                     scrub: true,
                 },
             });
@@ -143,7 +147,7 @@ export const Home = () => {
                     trigger: "#sticky-text-wrapper",
                     pin: true,
                     start: "center center",
-                    end: isBigScreen ? "400%" : "200%",
+                    end: isBiggerScreen ? "400%" : isBigScreen ? "325%" : isMediumScreen ? "275%" : "200%",
                     scrub: true,
                 },
             });
@@ -159,7 +163,7 @@ export const Home = () => {
                 },
             });
             gsap.to("#scroll-circle", {
-                scale: 3.25,
+                scale: isBiggerScreen ? 3.25 : isBigScreen ? 3.5 : isMediumScreen ? 3.75 : 4,
                 scrollTrigger: {
                     trigger: "#bridging-the-gap",
                     start: "51%",
@@ -167,7 +171,7 @@ export const Home = () => {
                 },
             });
             gsap.to("#scroll-circle", {
-                scale: 10,
+                scale: 12,
                 scrollTrigger: {
                     trigger: "#sticky-text",
                     start: "51%",
