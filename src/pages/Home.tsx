@@ -21,6 +21,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 export const Home = () => {
     useScrollToTop();
     const main = useRef();
+    const isXlScreen = useMediaQuery("(min-width: 2560px)");
     const isBiggerScreen = useMediaQuery("(min-width: 1080px)");
     const isBigScreen = useMediaQuery("(min-width: 768px)");
     const isMediumScreen = useMediaQuery("(min-width: 420px)");
@@ -171,7 +172,7 @@ export const Home = () => {
                 },
             });
             gsap.to("#scroll-circle", {
-                scale: 12,
+                scale: isXlScreen ? 20 : 12,
                 scrollTrigger: {
                     trigger: "#sticky-text",
                     start: "51%",
@@ -184,7 +185,7 @@ export const Home = () => {
                 scrollTrigger: {
                     trigger: "#sticky-text-wrapper",
                     start: "center center",
-                    end: "0.01%",
+                    end: "0%",
                     scrub: true,
                 },
             });
@@ -193,7 +194,7 @@ export const Home = () => {
                 scrollTrigger: {
                     trigger: "#sticky-text",
                     start: "center center",
-                    end: "0.01%",
+                    end: "0%",
                     scrub: true,
                 },
             });
@@ -202,7 +203,7 @@ export const Home = () => {
                 scrollTrigger: {
                     trigger: "#sticky-text",
                     start: "center center",
-                    end: "0.01%",
+                    end: "0%",
                     scrub: true,
                 },
             });
@@ -211,7 +212,7 @@ export const Home = () => {
                 scrollTrigger: {
                     trigger: "#sticky-text",
                     start: "center center",
-                    end: "0.01%",
+                    end: "0%",
                     scrub: true,
                 },
             });
@@ -220,6 +221,15 @@ export const Home = () => {
                 scrollTrigger: {
                     trigger: "#scroll-circle",
                     start: "center bottom",
+                    scrub: true,
+                },
+            });
+            gsap.to("#scroll-circle", {
+                display: 'none',
+                scrollTrigger: {
+                    trigger: "#features",
+                    start: "center center",
+                    end: '0%',
                     scrub: true,
                 },
             });
