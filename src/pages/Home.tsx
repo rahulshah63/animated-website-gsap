@@ -31,24 +31,24 @@ export const Home = () => {
                 filter: 'brightness(1)',
             });
             gsap.set("#frag-1", {
-                translateX: "-50",
+                translateX: "-25",
                 translateY: "0",
             });
             gsap.set("#frag-2", {
-                translateX: "50",
-                translateY: "-10",
+                translateX: "25",
+                translateY: "-5",
             });
             gsap.set("#frag-3", {
-                translateX: "-150",
-                translateY: "40",
+                translateX: "-75",
+                translateY: "20",
             });
             gsap.set("#frag-4", {
-                translateX: "-50",
-                translateY: "50",
+                translateX: "-25",
+                translateY: "25",
             });
             gsap.set("#frag-5", {
-                translateX: "150",
-                translateY: "50",
+                translateX: "75",
+                translateY: "25",
             });
             //fragments
             gsap.to("#frag", {
@@ -62,7 +62,7 @@ export const Home = () => {
                 },
             });
             gsap.to("#frag", {
-                filter: 'brightness(5)',
+                filter: isMediumScreen ? 'brightness(5)' : 'brightness(1.5)',
                 scrollTrigger: {
                     trigger: "#frag",
                     pin: true,
@@ -128,7 +128,7 @@ export const Home = () => {
                     trigger: "#frag-wrapper",
                     pin: true,
                     start: "center center",
-                    end: isBiggerScreen ? "300%" : isBigScreen ? "350%" : isMediumScreen ? "400%" : "750%",
+                    end: isBiggerScreen ? "300%" : isBigScreen ? "350%" : isMediumScreen ? "400%" : "700%",
                     scrub: true,
                 },
             });
@@ -158,7 +158,7 @@ export const Home = () => {
                 scrollTrigger: {
                     trigger: "#frag-wrapper",
                     start: "center center",
-                    // end: "40%",
+                    end: "300%",
                     scrub: true,
                 },
             });
@@ -180,6 +180,7 @@ export const Home = () => {
             });
             gsap.to("#scroll-circle", {
                 background: "#6029d7",
+                filter: 'brightness(1)',
                 scrollTrigger: {
                     trigger: "#sticky-text-wrapper",
                     start: "center center",

@@ -1,7 +1,6 @@
 import CedroText from "@/assets/icons/cedro-text.svg?react";
 import CedroIcon from "@/assets/icons/cedro-logo.svg?react";
 import HamburgerIcon from "@/assets/icons/hamburger.svg?react";
-import Feature from "@/assets/icons/feature.svg?react";
 import Fila from "@/assets/icons/fila.svg?react";
 import Nike from "@/assets/icons/nike.svg?react";
 import Addidas from "@/assets/icons/addidas.svg?react";
@@ -19,7 +18,6 @@ export {
     CedroText,
     CedroIcon,
     HamburgerIcon,
-    Feature,
     Addidas,
     Fila,
     Nike,
