@@ -4,7 +4,7 @@ import { cn } from "@/utils/cn";
 export const Fragmented = () => {
     return (
         <div className="fragmented-wrapper">
-            <span className="title my-20">
+            <span className="title">
                 Navigating the world of <br /> <b>fragmented liquidity</b>
             </span>
             <div id='frag-wrapper' className="bridgingTheGap relative flex justify-center items-center w-full child:w-full child:md:!w-[70%]">

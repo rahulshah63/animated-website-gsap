@@ -38,7 +38,7 @@ export const MobileMenu: FC<IMobileMenu> = ({ setShowMobileMenu, showmenu, menus
                     </div>
                 ))}
                 <div className="flex flex-col items-center gap-3 w-full">
-                    <Button
+                    {/* <Button
                         className="w-[60%]"
                         bgColor="bg-[#713CEE]"
                         textColor="text-white"
@@ -50,13 +50,15 @@ export const MobileMenu: FC<IMobileMenu> = ({ setShowMobileMenu, showmenu, menus
                                 10
                             );
                         }}
-                    />
+                    /> */}
                     <Button
                         className="w-[60%]"
-                        bgColor="bg-white"
-                        textColor="text-black"
-                        text="Launch Demo"
-                        handleClick={() => window.open(EXTERNAL_LINKS.DEMO, "_blank")}
+                        // bgColor="bg-white"
+                        // textColor="text-black"
+                        bgColor="bg-[#713CEE]"
+                        textColor="text-white"
+                        text="Launch App"
+                        handleClick={() => window.open(EXTERNAL_LINKS.APP, "_blank")}
                     />
                 </div>
             </div>

@@ -1,6 +1,4 @@
 import { StepCard } from "@/components/cards";
-import { Button } from "@/components/button/Button";
-import { EXTERNAL_LINKS } from "@/constants";
 
 export const Step = () => {
     return (
@@ -32,7 +30,7 @@ export const Step = () => {
                     tag="3"
                 />
             </div>
-            <div className="flex justify-center items-center gap-1.5 sm:gap-3 md:gap-5">
+            {/* <div className="flex justify-center items-center gap-1.5 sm:gap-3 md:gap-5">
                 <Button
                     textColor="text-white"
                     bgColor="bg-[rgba(113,60,238,1)]"
@@ -42,10 +40,10 @@ export const Step = () => {
                 <Button
                     bgColor="bg-white"
                     textColor="text-[rgba(113,60,238,1)]"
-                    text="Launch Demo"
-                    handleClick={() => window.open(EXTERNAL_LINKS.DEMO, "_blank")}
+                    text="Launch App"
+                    handleClick={() => window.open(EXTERNAL_LINKS.APP, "_blank")}
                 />
-            </div>
+            </div> */}
         </div>
     );
 };

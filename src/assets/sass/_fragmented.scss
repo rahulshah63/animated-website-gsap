@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 5rem;
     .title {
         font-size: 30px;
         font-weight: 400;
@@ -12,6 +13,9 @@
         @media screen and (min-width: 768px) {
             font-size: 61px;
             line-height: 69px;
+        }
+        @media screen and (min-width: 2600px) {
+            margin-top: 10rem;
         }
     }
     .description {

@@ -13,18 +13,18 @@ export const Banner = () => {
                 Everything you need to know about the product.
             </p>
             <div className="mt-11 md:mt-[3.125rem] z-10 mb-3 md:mb-[1.375rem] flex items-center gap-1.5 sm:gap-3 md:gap-5">
-                <Button
+                {/* <Button
                     textColor="text-black"
                     bgColor="bg-[#EDFB8B]"
                     text="Join Waitlist"
                     handleClick={() => document.getElementById('join-waitlist').focus()}
-                />
+                /> */}
                 <Button
                     bgColor="bg-white"
                     textColor="text-black"
-                    text="Launch Demo"
+                    text="Launch App"
                     handleClick={() => 
-                        window.open(EXTERNAL_LINKS.DEMO, "_blank")
+                        window.open(EXTERNAL_LINKS.APP, "_blank")
                     }
                 />
             </div>

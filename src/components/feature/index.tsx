@@ -8,7 +8,7 @@ export const Feature = () => {
             className="feature-wrapper flex flex-col gap-[1.875rem] md:gap-[10rem] justify-center"
         >
             <span className="title z-20">
-                The <b>Omni Power</b>
+                The <b>Omni Future</b>
                 <br />
                 with Cedro
             </span>

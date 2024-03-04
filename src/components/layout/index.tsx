@@ -25,7 +25,7 @@ const Layout: FC<LayoutProps> = ({
     return (
         <HelmetProvider>
             <div
-                className={`flex scroll-smooth flex-col justify-between items-center min-h-screen bg-[rgb(244,240,250)] site-layout overflow-hidden ${
+                className={`scroll-smooth flex-col justify-between items-center min-h-screen bg-[rgb(244,240,250)] site-layout ${
                     className ?? ""
                 }`}
             >
@@ -36,7 +36,7 @@ const Layout: FC<LayoutProps> = ({
                         classname={headerClass}
                     />
                 )}
-                <main className={`w-full  ${mainClass}`}>{!showMobileMenu && children}</main>
+                <main className={`w-full overflow-hidden ${mainClass}`}>{!showMobileMenu && children}</main>
                 {!hideFooter && <Footer classname="bg-white" />}
             </div>
         </HelmetProvider>

@@ -22,17 +22,19 @@ export const WebMenu: FC<IWebMenu> = (props) => {
             </div>
             <div className="hidden lg:flex gap-5 justify-center items-center ">
                 <Button
-                    bgColor="bg-transparent"
-                    textColor="text-black"
-                    text="Launch Demo"
-                    handleClick={() => window.open(EXTERNAL_LINKS.DEMO, "_blank")}
+                    // bgColor="bg-transparent"
+                    // textColor="text-black"
+                    bgColor="bg-[#713CEE]"
+                    textColor="text-white"
+                    text="Launch App"
+                    handleClick={() => window.open(EXTERNAL_LINKS.APP, "_blank")}
                 />
-                <Button
+                {/* <Button
                     bgColor="bg-[#713CEE]"
                     textColor="text-white"
                     text="Join Waitlist"
                     handleClick={() => document.getElementById("join-waitlist").focus()}
-                />
+                /> */}
             </div>
         </>
     );

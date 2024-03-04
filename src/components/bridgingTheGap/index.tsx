@@ -15,7 +15,7 @@ export const BridgingTheGap = () => {
                     Between Blockchains
                 </span>
                 <p id="sticky-text-description" className="description z-20">
-                    Meet Cedro - Your Gateway to Omnichain Flexibility
+                    Meet Cedro - Your Gateway to Omnichain Liquidity
                 </p>
             </div>
         </div>

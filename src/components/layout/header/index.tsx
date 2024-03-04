@@ -17,7 +17,7 @@ const Header: FC<IHeader> = ({ classname, showMobileMenu, setShowMobileMenu }) =
 
     return (
         <header
-            className={cn("w-full z-10 flex justify-between items-center mt-6 px-5 sm:px-9", classname)}
+            className={cn("w-full sticky top-0 z-50 bg-[rgb(244,240,250)] flex justify-between items-center px-5 py-3 shadow-sm sm:px-9", classname)}
         >
             <Link to={"/"} className="inline-flex gap-3 z-20">
                 <CedroIcon className="w-[2.15rem] h-[2.15rem]" />

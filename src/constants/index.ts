@@ -5,7 +5,7 @@ export const EXTERNAL_LINKS = {
     DISCORD: 'https://discord.gg/cedro-finance',
     TELEGRAM: 'https://t.me/cedrofinance',
     MEDIUM: 'https://medium.com/@cedrolabs',
-    DEMO: 'https://app.cedro.finance/'
+    APP: 'https://app.cedro.finance/'
 }  
 export const MENU_LIST = {
     HowItWorks: {
