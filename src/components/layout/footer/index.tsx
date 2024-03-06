@@ -17,7 +17,7 @@ const Footer: FC<IFooter> = ({ classname }) => {
                 classname
             )}
         >
-            <div className="flex w-full flex-col md:flex-row justify-center md:justify-between gap-6 items-center md:items-end">
+            <div className="flex w-full flex-col lg:flex-row justify-center lg:justify-between gap-6 items-center lg:items-end">
                 <Link to={"/"} className="inline-flex gap-3 pb-2">
                     <CedroIcon className="w-[2.15rem] h-[2.15rem]" />
                     <CedroText className="h-[2.15rem]" />
