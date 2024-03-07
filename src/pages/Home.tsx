@@ -35,7 +35,15 @@ export const Home = () => {
                 translateX: "-25",
                 translateY: "0",
             });
+            gsap.set("#text-1", {
+                translateX: "-25",
+                translateY: "0",
+            });
             gsap.set("#frag-2", {
+                translateX: "25",
+                translateY: "-5",
+            });
+            gsap.set("#text-2", {
                 translateX: "25",
                 translateY: "-5",
             });
@@ -44,6 +52,10 @@ export const Home = () => {
                 translateY: "20",
             });
             gsap.set("#frag-4", {
+                translateX: "-25",
+                translateY: "25",
+            });
+            gsap.set("#text-3", {
                 translateX: "-25",
                 translateY: "25",
             });
@@ -82,7 +94,27 @@ export const Home = () => {
                     scrub: true,
                 },
             });
+            gsap.to("#text-1", {
+                translateX: "0",
+                translateY: "0",
+                scrollTrigger: {
+                    trigger: "#frag",
+                    start: "center center",
+                    end: "80%",
+                    scrub: true,
+                },
+            });
             gsap.to("#frag-2", {
+                translateX: "0",
+                translateY: "0",
+                scrollTrigger: {
+                    trigger: "#frag",
+                    start: "center center",
+                    end: "80%",
+                    scrub: true,
+                },
+            });
+            gsap.to("#text-2", {
                 translateX: "0",
                 translateY: "0",
                 scrollTrigger: {
@@ -103,6 +135,16 @@ export const Home = () => {
                 },
             });
             gsap.to("#frag-4", {
+                translateX: "0",
+                translateY: "0",
+                scrollTrigger: {
+                    trigger: "#frag",
+                    start: "center center",
+                    end: "80%",
+                    scrub: true,
+                },
+            });
+            gsap.to("#text-3", {
                 translateX: "0",
                 translateY: "0",
                 scrollTrigger: {
@@ -172,7 +214,7 @@ export const Home = () => {
                 },
             });
             gsap.to("#scroll-circle", {
-                scale: isXlScreen ? 20 : 12,
+                scale: isXlScreen ? 25 : 12,
                 scrollTrigger: {
                     trigger: "#sticky-text",
                     start: "51%",

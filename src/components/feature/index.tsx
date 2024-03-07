@@ -1,4 +1,5 @@
 import { FeatureCard } from "@/components/cards";
+import { EXTERNAL_LINKS } from "@/constants";
 import { FeatureBG, FeatureFG } from "@/constants/assets/Images";
 
 export const Feature = () => {
@@ -16,11 +17,11 @@ export const Feature = () => {
                 <FeatureCard
                     title={
                         <>
-                            Use native tokens{" "}
+                            Utilize native tokens{" "}
                             <text className="text-[#FFFBA2]">
-                                across <br /> different
+                                across <br /> multiple
                             </text>{" "}
-                            blockchains
+                            chains
                         </>
                     }
                     image={
@@ -37,16 +38,15 @@ export const Feature = () => {
                             />
                         </div>
                     }
-                    description="Transforms isolated assets into powerful tools usable across multiple blockchains"
+                    description="Expands the value of your native assets from single chain to multiple chains"
                     buttonText="Try it Now"
                     tag="OmniAsset"
-                    handleClick={() => {}}
+                    handleClick={() => window.open(EXTERNAL_LINKS.APP, "_blank")}
                 />
                 <FeatureCard
                     title={
                         <>
-                            <text className="text-[#FFFBA2]">Maximize</text> the Power of Your
-                            Capital
+                            <text className="text-[#FFFBA2]">Maximize</text> your Yield
                         </>
                     }
                     image={
@@ -63,19 +63,15 @@ export const Feature = () => {
                             />
                         </div>
                     }
-                    description="Transforms isolated assets into powerful tools usable across multiple blockchains"
+                    description="Lets you earn more yield from users across multiple chains"
                     tag="OmniYield"
                     buttonText="Try it Now"
-                    handleClick={() => {}}
+                    handleClick={() => window.open(EXTERNAL_LINKS.APP, "_blank")}
                 />
                 <FeatureCard
                     title={
                         <>
-                            Use native tokens{" "}
-                            <text className="text-[#FFFBA2]">
-                                across <br /> different
-                            </text>{" "}
-                            blockchains
+                            <text className="text-[#FFFBA2]">Single</text> environment powerhouse
                         </>
                     }
                     image={
@@ -92,10 +88,10 @@ export const Feature = () => {
                             />
                         </div>
                     }
-                    description="Transforms isolated assets into powerful tools usable across multiple blockchains"
+                    description="Aggregates liquidity from multiple chains to one for greater composability"
                     tag="OmniLPD"
                     buttonText="Try it Now"
-                    handleClick={() => {}}
+                    handleClick={() => window.open(EXTERNAL_LINKS.APP, "_blank")}
                 />
             </div>
         </div>

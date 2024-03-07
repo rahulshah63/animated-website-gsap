@@ -24,6 +24,7 @@ export const WebMenu: FC<IWebMenu> = (props) => {
                 <Button
                     // bgColor="bg-transparent"
                     // textColor="text-black"
+                    className="!h-[2rem] md:!h-[3rem]"
                     bgColor="bg-[#713CEE]"
                     textColor="text-white"
                     text="Launch App"

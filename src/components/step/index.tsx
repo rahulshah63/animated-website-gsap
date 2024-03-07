@@ -16,17 +16,17 @@ export const Step = () => {
             <div className="flex flex-col md:flex-row gap-5 justify-center items-center">
                 <StepCard
                     title="First Step"
-                    description="Brief explanation of this step and what to do"
+                    description="Go to our App"
                     tag="1"
                 />
                 <StepCard
                     title="Second Step"
-                    description="Brief explanation of this step and what to do"
+                    description="Lend an asset from any chain"
                     tag="2"
                 />
                 <StepCard
                     title="Third Step"
-                    description="Brief explanation of this step and what to do"
+                    description="Sit back and earn OmniYield or borrow on any other chains"
                     tag="3"
                 />
             </div>

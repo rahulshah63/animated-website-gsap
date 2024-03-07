@@ -4,10 +4,10 @@ import { cn } from "@/utils/cn";
 export const Fragmented = () => {
     return (
         <div className="fragmented-wrapper">
-            <span className="title">
+            <span className="title -mb-[4rem] md:-mb-[10rem] lg:-mb-[15rem]">
                 Navigating the world of <br /> <b>fragmented liquidity</b>
             </span>
-            <div id='frag-wrapper' className="bridgingTheGap relative flex justify-center items-center w-full child:w-full child:md:!w-[70%]">
+            <div id='frag-wrapper' className="relative flex justify-center items-center w-full child:w-full child:md:!w-[70%]">
                 <FRAG id='frag' className={cn('!pt-[5rem] md:!pt-[10rem] !top-0')}/>
                 <div
                     id="scroll-circle"
