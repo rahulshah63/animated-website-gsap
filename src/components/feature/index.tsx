@@ -1,5 +1,4 @@
 import { FeatureCard } from "@/components/cards";
-import { EXTERNAL_LINKS } from "@/constants";
 import { FeatureBG, FeatureFG } from "@/constants/assets/Images";
 
 export const Feature = () => {
@@ -39,9 +38,7 @@ export const Feature = () => {
                         </div>
                     }
                     description="Expands the value of your native assets from single chain to multiple chains"
-                    buttonText="Try it Now"
                     tag="OmniAsset"
-                    handleClick={() => window.open(EXTERNAL_LINKS.APP, "_blank")}
                 />
                 <FeatureCard
                     title={
@@ -65,8 +62,6 @@ export const Feature = () => {
                     }
                     description="Lets you earn more yield from users across multiple chains"
                     tag="OmniYield"
-                    buttonText="Try it Now"
-                    handleClick={() => window.open(EXTERNAL_LINKS.APP, "_blank")}
                 />
                 <FeatureCard
                     title={
@@ -90,8 +85,6 @@ export const Feature = () => {
                     }
                     description="Aggregates liquidity from multiple chains to one for greater composability"
                     tag="OmniLPD"
-                    buttonText="Try it Now"
-                    handleClick={() => window.open(EXTERNAL_LINKS.APP, "_blank")}
                 />
             </div>
         </div>
