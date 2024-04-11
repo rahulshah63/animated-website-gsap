@@ -161,13 +161,13 @@ const FAQItem: FC<IFAQItem> = ({ question, answer, id, faqIds, setFaqIds }) => {
         }
     };
     return (
-        <div className="w-[80%] max-w-[1030px]">
+        <div className="w-[80%] max-w-[1030px] disable-select select-none">
             <div className="cursor-pointer" onClick={handleClick}>
                 <div className="px-4 lg:px-12">
                     <div className="flex justify-between items-start">
-                        <div className="w-[90%]">
-                            <p className="question">{question}</p>
-                            {faqIds.includes(id) && <p className="mt-6 answer">{answer}</p>}
+                        <div className="w-[90%] ">
+                            <p className="question select-none">{question}</p>
+                            {faqIds.includes(id) && <p className="mt-6 answer select-none">{answer}</p>}
                         </div>
                         <PLUS
                             className={`${faqIds.includes(id) && "stroke-blue-600 -rotate-45"}`}

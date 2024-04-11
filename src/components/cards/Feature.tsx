@@ -23,7 +23,7 @@ export const FeatureCard: FC<FeatureCardProps> = ({ title, tag, description, ima
       >
         <span className='hidden md:block tag rounded-[200px] px-5 py-2.5'>&#8226; {tag}</span>
         {image}
-        <div className='flex flex-col justify-center items-center md:items-start gap-5'>
+        <div className='flex flex-col justify-start w-full items-center md:items-start gap-5'>
           <span className='title'>{title}</span>
           <span className='description'>{description}</span>
           {/* <Button textColor='text-black' bgColor='bg-[#F0B2FF]' text={buttonText} handleClick={() => {}} /> */}
