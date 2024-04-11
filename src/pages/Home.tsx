@@ -25,9 +25,15 @@ export const Home = () => {
     const isBiggerScreen = useMediaQuery("(min-width: 1080px)");
     const isBigScreen = useMediaQuery("(min-width: 768px)");
     const isMediumScreen = useMediaQuery("(min-width: 420px)");
-
+    
+    // Disable smooth scrolling before animation
+    document.documentElement.style.scrollBehavior = 'auto';
     useGSAP(
         () => {
+            gsap.to(window, { duration: 1, onComplete: () => {
+                // Re-enable smooth scrolling after animation
+                document.documentElement.style.scrollBehavior = 'smooth';
+              }});
             gsap.set("#frag", {
                 filter: 'brightness(1)',
             });
