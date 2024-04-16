@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useRef, useState } from "react";
+import { FC, ReactNode, useRef } from "react";
 import gsap from "gsap";
 import { PLUS } from "@/constants/assets/Icons";
 import { useGSAP } from "@gsap/react";
@@ -126,10 +126,11 @@ export const FAQ = () => {
 
     useGSAP(
         () => {
-    const questions = document.querySelectorAll('.faq-question');
+    const questions = document.querySelectorAll('.faq');
 
     questions.forEach(question => {
       const answer = question.querySelector('.faq-answer') as HTMLElement;
+      const icon = question.querySelector('.faq-icon') as HTMLElement;
       const questionTitle = question.querySelector('h2'); // For click target
     
       questionTitle.addEventListener('click', () => {
@@ -138,6 +139,10 @@ export const FAQ = () => {
         gsap.to(answer, {
             duration: 0.5,
             height: isVisible ? '0' : 'auto', 
+        });
+        gsap.to(icon, {
+            duration: 0.5,
+            rotate: isVisible ? '0' : '225',
         });
       });
     });
@@ -172,13 +177,13 @@ const FAQItem: FC<IFAQItem> = ({ question, answer}) => {
     return (
         <div className="w-[80%] max-w-[1030px] bg-white">
                 <div className="px-4 lg:px-12">
-                    <div className="flex justify-between items-start">
+                    <div className="faq flex justify-between py-1 items-start">
                         <div className="w-[90%] faq-question">
                             <h2 className="question select-none py-3">{question}</h2>
                             <p className="mt-6 answer faq-answer h-0">{answer}</p>
                         </div>
                         <PLUS
-                            // className={`${faqIds.includes(id) && "stroke-blue-600 -rotate-45"}`}
+                            className= "faq-icon"
                         />
                     </div>
                     <hr className="border-[#AEA5BE] border-opacity-20 w-full" />
