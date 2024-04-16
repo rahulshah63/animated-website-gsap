@@ -4,7 +4,7 @@ import { EXTERNAL_LINKS } from "@/constants";
 
 export const Hero = () => {
     return (
-        <div className="px-5 sm:px-[1.5rem] lg:px-[3rem] xl:px-[5rem] relative h-screen w-full flex flex-col sm:flex-row justify-around items-center">
+        <div className="px-5 sm:px-[1.5rem] lg:px-[3rem] xl:px-[5rem] relative h-[45dvh] md:h-screen w-full flex flex-col sm:flex-row justify-around items-center">
             <div className="flex flex-col gap-5">
                 <span className="heading z-10">
                     Transform <b>Native Assets</b> to <b>OmniAssets</b>
@@ -23,6 +23,7 @@ export const Hero = () => {
                     <Button
                         textColor="text-white"
                         bgColor="bg-[rgba(113,60,238,1)]"
+                        className="px-8"
                         // bgColor="bg-white"
                         // textColor="text-[rgba(113,60,238,1)]"
                         text="Launch App"
@@ -37,7 +38,7 @@ export const Hero = () => {
                     1200+ joined
                 </span>
             </div>
-            <div className="flex justify-center items-center z-10">
+            <div className="hidden md:flex justify-center items-center z-10">
                 <img
                     src={HeroCards}
                     alt="Cedro Finance | Lend and borrow the assets with cross-chain decentralized liquidity protocol."

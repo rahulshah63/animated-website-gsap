@@ -2,8 +2,8 @@ import { BING, BLOCKCHAIN_BUILDER_FUND, INFINITY_VENTURE, L2VI, LAYER_ZERO, MASK
 
 export const Partner = () => {
     return (
-        <div className="partners my-20 mx-5 md:mx-10 gap-5 md:gap-10">
-            <div className="text-center">
+        <div className="partners my-32 mx-5 md:mx-10">
+            <div className="text-center -mb-5">
 
             {/* <p className="info-text mt-4">Partners</p> */}
             <span className="title">Backed by the best.</span>

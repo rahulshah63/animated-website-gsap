@@ -1,6 +1,7 @@
-import React, { FC, ReactNode, useState } from "react";
-
+import React, { FC, ReactNode, useRef, useState } from "react";
+import gsap from "gsap";
 import { PLUS } from "@/constants/assets/Icons";
+import { useGSAP } from "@gsap/react";
 
 const FAQList = [
     {
@@ -121,23 +122,41 @@ const FAQList = [
 ];
 
 export const FAQ = () => {
-    const [faqIds, setFaqIds] = useState<number[]>([]);
+    const faq = useRef();
 
+    useGSAP(
+        () => {
+    const questions = document.querySelectorAll('.faq-question');
+
+    questions.forEach(question => {
+      const answer = question.querySelector('.faq-answer') as HTMLElement;
+      const questionTitle = question.querySelector('h2'); // For click target
+    
+      questionTitle.addEventListener('click', () => {
+        const isVisible = answer.style.height === 'auto'; // Check current visibility
+
+        gsap.to(answer, {
+            duration: 0.5,
+            height: isVisible ? '0' : 'auto', 
+        });
+      });
+    });
+},
+{ scope: faq }
+);
     return (
         <div
+        ref={faq}
             id="faq"
             className="faq-wrapper flex flex-col mx-auto justify-center items-center w-full"
         >
             <span className="title">Frequently asked questions</span>
-            <p className="description mt-8 mb-16">Everything you need to know about the product.</p>
-            {FAQList.map((item, index) => (
+            <p className="description my-8">Everything you need to know about the product.</p>
+                {FAQList.map((item, index) => (
                 <FAQItem
                     key={index}
-                    id={index}
                     question={item.question}
                     answer={item.answer}
-                    faqIds={faqIds}
-                    setFaqIds={setFaqIds}
                 />
             ))}
         </div>
@@ -145,37 +164,26 @@ export const FAQ = () => {
 };
 
 interface IFAQItem {
-    id: number;
     question: string;
     answer: string | ReactNode;
-    faqIds: number[];
-    setFaqIds: React.Dispatch<React.SetStateAction<number[]>>;
 }
 
-const FAQItem: FC<IFAQItem> = ({ question, answer, id, faqIds, setFaqIds }) => {
-    const handleClick = () => {
-        if (faqIds.includes(id)) {
-            setFaqIds(faqIds.filter((item) => item !== id));
-        } else {
-            setFaqIds([...faqIds, id]);
-        }
-    };
+const FAQItem: FC<IFAQItem> = ({ question, answer}) => {
     return (
-        <div className="w-[80%] max-w-[1030px] disable-select select-none">
-            <div className="cursor-pointer" onClick={handleClick}>
+        <div className="w-[80%] max-w-[1030px] bg-white">
                 <div className="px-4 lg:px-12">
                     <div className="flex justify-between items-start">
-                        <div className="w-[90%] ">
-                            <p className="question select-none">{question}</p>
-                            {faqIds.includes(id) && <p className="mt-6 answer select-none">{answer}</p>}
+                        <div className="w-[90%] faq-question">
+                            <h2 className="question select-none py-3">{question}</h2>
+                            <p className="mt-6 answer faq-answer h-0">{answer}</p>
                         </div>
                         <PLUS
-                            className={`${faqIds.includes(id) && "stroke-blue-600 -rotate-45"}`}
+                            // className={`${faqIds.includes(id) && "stroke-blue-600 -rotate-45"}`}
                         />
                     </div>
-                    <hr className="my-6 border-[#AEA5BE] border-opacity-20 w-full" />
+                    <hr className="border-[#AEA5BE] border-opacity-20 w-full" />
                 </div>
-            </div>
+
         </div>
     );
 };
